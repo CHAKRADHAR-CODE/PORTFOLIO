@@ -14,7 +14,60 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      coding_stats: {
+        Row: {
+          additional_data: Json | null
+          badges: number | null
+          created_at: string
+          easy_solved: number | null
+          fetched_at: string
+          hard_solved: number | null
+          id: string
+          medium_solved: number | null
+          platform: string
+          ranking: number | null
+          rating: number | null
+          score: number | null
+          streak: number | null
+          total_solved: number | null
+          username: string
+        }
+        Insert: {
+          additional_data?: Json | null
+          badges?: number | null
+          created_at?: string
+          easy_solved?: number | null
+          fetched_at?: string
+          hard_solved?: number | null
+          id?: string
+          medium_solved?: number | null
+          platform: string
+          ranking?: number | null
+          rating?: number | null
+          score?: number | null
+          streak?: number | null
+          total_solved?: number | null
+          username: string
+        }
+        Update: {
+          additional_data?: Json | null
+          badges?: number | null
+          created_at?: string
+          easy_solved?: number | null
+          fetched_at?: string
+          hard_solved?: number | null
+          id?: string
+          medium_solved?: number | null
+          platform?: string
+          ranking?: number | null
+          rating?: number | null
+          score?: number | null
+          streak?: number | null
+          total_solved?: number | null
+          username?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

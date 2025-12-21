@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import ThemeToggle from "./ThemeToggle";
 
 const navLinks = [
   { label: "About", href: "#about" },
+  { label: "Skills", href: "#skills" },
   { label: "Projects", href: "#projects" },
   { label: "Coding", href: "#coding" },
   { label: "Certifications", href: "#certifications" },
@@ -31,20 +33,20 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "glass-card py-3" : "py-6"
+        scrolled ? "glass-card py-3 shadow-lg" : "py-6"
       }`}
     >
       <div className="max-w-6xl mx-auto px-4 flex items-center justify-between">
         {/* Logo */}
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        className="text-lg font-bold gradient-text hover:opacity-80 transition-opacity"
+          className="text-lg font-bold gradient-text hover:opacity-80 transition-opacity font-mono"
         >
           &lt;CHAKRADHAR /&gt;
         </button>
 
         {/* Desktop Links */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-6">
           {navLinks.map((link) => (
             <button
               key={link.label}
@@ -55,6 +57,7 @@ const Navbar = () => {
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
             </button>
           ))}
+          <ThemeToggle />
           <Button
             size="sm"
             onClick={() => scrollToSection("#contact")}
@@ -65,21 +68,24 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Menu Button */}
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden p-2"
-        >
-          {isOpen ? (
-            <X className="w-6 h-6" />
-          ) : (
-            <Menu className="w-6 h-6" />
-          )}
-        </button>
+        <div className="flex items-center gap-2 md:hidden">
+          <ThemeToggle />
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="p-2"
+          >
+            {isOpen ? (
+              <X className="w-6 h-6" />
+            ) : (
+              <Menu className="w-6 h-6" />
+            )}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 glass-card border-t border-border/50 animate-slide-up">
+        <div className="md:hidden absolute top-full left-0 right-0 glass-card border-t border-border/50 animate-fade-in">
           <div className="flex flex-col p-4 space-y-4">
             {navLinks.map((link) => (
               <button

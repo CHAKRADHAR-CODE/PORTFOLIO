@@ -1,8 +1,21 @@
-import { Github, Linkedin, Mail, Phone, ChevronDown } from "lucide-react";
+import { Github, Linkedin, Mail, Phone, ChevronDown, Code2, Terminal } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useTypingEffect } from "@/hooks/useTypingEffect";
 import heroBg from "@/assets/hero-bg.jpg";
 
 const HeroSection = () => {
+  const { displayText } = useTypingEffect({
+    texts: [
+      "Full Stack Developer",
+      "Software Engineer",
+      "Problem Solver",
+      "Tech Enthusiast",
+    ],
+    typingSpeed: 80,
+    deletingSpeed: 40,
+    delayBetweenTexts: 2500,
+  });
+
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
@@ -14,83 +27,103 @@ const HeroSection = () => {
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: `url(${heroBg})` }}
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/70 to-background" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/80 to-background" />
 
-      {/* Animated Particles */}
+      {/* Animated Code Particles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(20)].map((_, i) => (
+        {[...Array(15)].map((_, i) => (
           <div
             key={i}
-            className="absolute w-2 h-2 rounded-full bg-primary/30"
+            className="absolute text-primary/20 font-mono text-sm"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
-              animation: `particle-float ${5 + Math.random() * 5}s ease-in-out infinite`,
+              animation: `particle-float ${8 + Math.random() * 4}s ease-in-out infinite`,
               animationDelay: `${Math.random() * 5}s`,
             }}
-          />
+          >
+            {["</>", "{}", "[]", "//", "=>", "&&", "||", "!="][Math.floor(Math.random() * 8)]}
+          </div>
         ))}
+      </div>
+
+      {/* Floating Tech Icons */}
+      <div className="absolute top-1/4 left-10 animate-float opacity-20">
+        <Code2 className="w-16 h-16 text-primary" />
+      </div>
+      <div className="absolute bottom-1/4 right-10 animate-float opacity-20" style={{ animationDelay: "2s" }}>
+        <Terminal className="w-16 h-16 text-primary" />
       </div>
 
       {/* Content */}
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-        <p className="text-primary font-mono text-sm md:text-base mb-4 tracking-wider animate-fade-in">
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card mb-6 animate-fade-in">
+          <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+          <span className="text-sm font-mono text-muted-foreground">Available for opportunities</span>
+        </div>
+
+        <p className="text-primary font-mono text-sm md:text-base mb-4 tracking-wider animate-fade-in stagger-1">
           &lt; Hello World /&gt;
         </p>
 
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 animate-fade-in stagger-2">
           I'm{" "}
           <span className="gradient-text text-glow">
             Chakradhar Chowdary
           </span>
         </h1>
 
-        <p className="text-xl md:text-2xl text-muted-foreground mb-2">
-          AI & Machine Learning Student
-        </p>
-        <p className="text-muted-foreground/80 mb-8">
+        <div className="h-12 md:h-14 mb-2 animate-fade-in stagger-3">
+          <p className="text-xl md:text-2xl text-foreground font-semibold">
+            {displayText}
+            <span className="inline-block w-0.5 h-6 md:h-7 bg-primary ml-1 animate-pulse" />
+          </p>
+        </div>
+        
+        <p className="text-muted-foreground mb-8 animate-fade-in stagger-4">
           B.Tech @ Aditya University | GPA: 8.7/10
         </p>
 
         {/* Social Links */}
-        <div className="flex justify-center gap-4 mb-8">
+        <div className="flex justify-center gap-4 mb-8 animate-fade-in stagger-5">
           <a
             href="mailto:chakradhar.gunnam@gmail.com"
-            className="p-3 rounded-full glass-card hover:glow-primary transition-all duration-300 hover:scale-110"
+            className="p-3 rounded-full glass-card hover:glow-primary transition-all duration-300 hover:scale-110 hover:-translate-y-1"
           >
             <Mail className="w-5 h-5 text-primary" />
           </a>
           <a
             href="tel:+918341792799"
-            className="p-3 rounded-full glass-card hover:glow-primary transition-all duration-300 hover:scale-110"
+            className="p-3 rounded-full glass-card hover:glow-primary transition-all duration-300 hover:scale-110 hover:-translate-y-1"
           >
             <Phone className="w-5 h-5 text-primary" />
           </a>
           <a
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/in/chakradhar-chowdary-gunnam-910070333"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-3 rounded-full glass-card hover:glow-primary transition-all duration-300 hover:scale-110"
+            className="p-3 rounded-full glass-card hover:glow-primary transition-all duration-300 hover:scale-110 hover:-translate-y-1"
           >
             <Linkedin className="w-5 h-5 text-primary" />
           </a>
           <a
-            href="https://github.com"
+            href="https://github.com/CHAKRADHAR-CODE"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-3 rounded-full glass-card hover:glow-primary transition-all duration-300 hover:scale-110"
+            className="p-3 rounded-full glass-card hover:glow-primary transition-all duration-300 hover:scale-110 hover:-translate-y-1"
           >
             <Github className="w-5 h-5 text-primary" />
           </a>
         </div>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row justify-center gap-4">
+        <div className="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in stagger-6">
           <Button
             size="lg"
             onClick={() => scrollToSection("projects")}
-            className="glow-primary animate-pulse-glow"
+            className="glow-primary animate-pulse-glow group"
           >
+            <Code2 className="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform" />
             View My Work
           </Button>
           <Button
@@ -107,9 +140,11 @@ const HeroSection = () => {
       {/* Scroll Indicator */}
       <button
         onClick={() => scrollToSection("about")}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-float cursor-pointer"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-float cursor-pointer group"
       >
-        <ChevronDown className="w-8 h-8 text-primary" />
+        <div className="p-2 rounded-full glass-card group-hover:glow-primary transition-all">
+          <ChevronDown className="w-6 h-6 text-primary" />
+        </div>
       </button>
     </section>
   );
