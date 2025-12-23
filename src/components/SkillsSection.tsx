@@ -1,50 +1,33 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import AnimatedSection from "./AnimatedSection";
 
 const skills = [
-  { name: "Python", level: 90, category: "Languages" },
-  { name: "C/C++", level: 85, category: "Languages" },
-  { name: "JavaScript", level: 80, category: "Languages" },
-  { name: "TypeScript", level: 75, category: "Languages" },
-  { name: "SQL", level: 85, category: "Languages" },
-  { name: "React", level: 80, category: "Frameworks" },
-  { name: "Tailwind CSS", level: 90, category: "Frameworks" },
-  { name: "Node.js", level: 70, category: "Frameworks" },
-  { name: "Machine Learning", level: 75, category: "AI/ML" },
-  { name: "TensorFlow", level: 70, category: "AI/ML" },
-  { name: "Data Analysis", level: 80, category: "AI/ML" },
-  { name: "Git/GitHub", level: 85, category: "Tools" },
-  { name: "MySQL", level: 85, category: "Tools" },
-  { name: "VS Code", level: 90, category: "Tools" },
+  // Languages
+  { name: "C++", category: "Languages", icon: "⚡" },
+  { name: "Python", category: "Languages", icon: "🐍" },
+  { name: "C", category: "Languages", icon: "🔧" },
+  { name: "SQL", category: "Languages", icon: "🗃️" },
+  // Web
+  { name: "HTML", category: "Web", icon: "🌐" },
+  { name: "CSS", category: "Web", icon: "🎨" },
+  // ML / Database
+  { name: "Supervised Learning", category: "ML / Database", icon: "🧠" },
+  { name: "MySQL", category: "ML / Database", icon: "🐬" },
+  { name: "Query Optimization", category: "ML / Database", icon: "⚡" },
+  // Tools
+  { name: "Git", category: "Tools", icon: "📂" },
+  { name: "VS Code", category: "Tools", icon: "💻" },
+  { name: "Linux", category: "Tools", icon: "🐧" },
+  { name: "Power BI", category: "Tools", icon: "📊" },
+  { name: "Excel", category: "Tools", icon: "📗" },
 ];
 
-const categories = ["Languages", "Frameworks", "AI/ML", "Tools"];
+const categories = ["Languages", "Web", "ML / Database", "Tools"];
 
 const SkillsSection = () => {
   const [activeCategory, setActiveCategory] = useState("Languages");
-  const [isVisible, setIsVisible] = useState(false);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    const section = document.getElementById("skills");
-    if (section) {
-      observer.observe(section);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
-  const filteredSkills = skills.filter(
-    (skill) => skill.category === activeCategory
-  );
+  const filteredSkills = skills.filter((skill) => skill.category === activeCategory);
 
   return (
     <section
@@ -55,11 +38,15 @@ const SkillsSection = () => {
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/3 -right-32 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
         <div className="absolute bottom-1/3 -left-32 w-96 h-96 bg-[hsl(280,100%,65%,0.05)] rounded-full blur-3xl" />
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(139,92,246,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(139,92,246,0.03)_1px,transparent_1px)] bg-[size:50px_50px]" />
       </div>
 
       <div className="max-w-6xl mx-auto relative z-10">
         <AnimatedSection className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <span className="inline-block px-4 py-2 rounded-full glass-card text-primary text-sm font-medium mb-4">
+            💻 Tech Stack
+          </span>
+          <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4 tracking-wide uppercase">
             Technical <span className="gradient-text">Skills</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
@@ -74,10 +61,10 @@ const SkillsSection = () => {
               <button
                 key={category}
                 onClick={() => setActiveCategory(category)}
-                className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${
+                className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 border ${
                   activeCategory === category
-                    ? "bg-primary text-primary-foreground shadow-lg shadow-primary/25 scale-105"
-                    : "glass-card text-muted-foreground hover:text-foreground hover:bg-primary/10"
+                    ? "bg-primary text-primary-foreground border-primary shadow-lg shadow-primary/30"
+                    : "glass-card border-border/50 text-muted-foreground hover:text-foreground hover:border-primary/50 hover:bg-primary/10"
                 }`}
               >
                 {category}
@@ -86,51 +73,42 @@ const SkillsSection = () => {
           </div>
         </AnimatedSection>
 
-        {/* Skills Grid */}
-        <div className="grid md:grid-cols-2 gap-6">
-          {filteredSkills.map((skill, index) => (
-            <AnimatedSection key={skill.name} animation="fade-left" delay={index * 100}>
+        {/* Skills Grid - Square Boxes */}
+        <AnimatedSection animation="scale" delay={200}>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            {filteredSkills.map((skill, index) => (
               <div
-                className="glass-card rounded-xl p-6 group hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 hover:-translate-y-1"
+                key={skill.name}
+                className="group aspect-square glass-card rounded-xl flex flex-col items-center justify-center gap-3 hover:bg-primary/10 hover:border-primary/30 transition-all duration-300 hover:-translate-y-2 hover:shadow-lg hover:shadow-primary/20 cursor-default border border-border/50"
+                style={{ animationDelay: `${index * 50}ms` }}
               >
-                <div className="flex justify-between items-center mb-3">
-                  <span className="font-semibold text-foreground group-hover:text-primary transition-colors">
-                    {skill.name}
-                  </span>
-                  <span className="text-sm font-mono text-primary">
-                    {skill.level}%
-                  </span>
-                </div>
-                <div className="h-3 bg-muted/50 rounded-full overflow-hidden">
-                  <div
-                    className="h-full rounded-full bg-gradient-to-r from-primary via-[hsl(280,100%,65%)] to-primary transition-all duration-1000 ease-out relative overflow-hidden"
-                    style={{
-                      width: isVisible ? `${skill.level}%` : "0%",
-                      transitionDelay: `${index * 100}ms`,
-                    }}
-                  >
-                    {/* Shimmer effect */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full animate-[shimmer_2s_infinite]" />
-                  </div>
-                </div>
+                <span className="text-4xl group-hover:scale-125 transition-transform duration-300">
+                  {skill.icon}
+                </span>
+                <span className="font-medium text-foreground group-hover:text-primary transition-colors text-center px-2">
+                  {skill.name}
+                </span>
               </div>
-            </AnimatedSection>
-          ))}
-        </div>
+            ))}
+          </div>
+        </AnimatedSection>
 
         {/* Summary Stats */}
-        <AnimatedSection animation="scale" delay={300}>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12">
+        <AnimatedSection animation="scale" delay={400}>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16">
             {[
-              { label: "Languages", value: "6+" },
-              { label: "Frameworks", value: "5+" },
-              { label: "Projects", value: "10+" },
-              { label: "Certifications", value: "4+" },
+              { label: "Languages", value: "4+", icon: "🔤" },
+              { label: "Tools", value: "5+", icon: "🏗️" },
+              { label: "Projects", value: "10+", icon: "📁" },
+              { label: "Certifications", value: "4+", icon: "🏆" },
             ].map((stat) => (
               <div
                 key={stat.label}
-                className="glass-card rounded-xl p-4 text-center hover:scale-105 transition-transform hover:glow-primary"
+                className="glass-card rounded-xl p-6 text-center hover:scale-105 transition-all duration-300 group hover:shadow-lg hover:shadow-primary/20 hover:border-primary/30"
               >
+                <div className="text-3xl mb-2 group-hover:scale-110 transition-transform">
+                  {stat.icon}
+                </div>
                 <div className="text-2xl md:text-3xl font-bold gradient-text mb-1">
                   {stat.value}
                 </div>

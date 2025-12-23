@@ -4,46 +4,33 @@ import AnimatedSection from "./AnimatedSection";
 
 const projects = [
   {
-    title: "Student Result Management System",
-    tech: ["C++", "MySQL", "HTML"],
-    description: "A comprehensive system for managing student records with CRUD operations and automated data entry.",
+    title: "Library Seat Reservation System",
+    tech: ["HTML", "TypeScript", "JavaScript", "MongoDB"],
+    description: "A web-based system for digital library seat booking with real-time availability.",
     highlights: [
-      "Handles 50+ student records",
-      "30% reduction in data entry time",
-      "2x faster result display",
+      "Real-time seat availability",
+      "Interactive UI with TypeScript",
+      "MongoDB for user & reservation management",
     ],
-    icon: Database,
+    icon: Layout,
     gradient: "from-primary via-[hsl(280,100%,65%)] to-[hsl(180,100%,50%)]",
-    date: "May 2025",
-    githubUrl: "https://github.com/CHAKRADHAR-CODE/Student-Result-Management-System",
+    date: "Mar 2025",
+    githubUrl: "https://github.com/CHAKRADHAR-CODE",
+    liveUrl: "https://github.com/CHAKRADHAR-CODE",
   },
   {
     title: "AI-Based Word Game",
     tech: ["Python", "MySQL"],
-    description: "An intelligent word game featuring technical terms with smart hint systems.",
+    description: "A Python-based word game with MySQL-backed word storage and smart hint systems.",
     highlights: [
       "200+ technical terms database",
-      "85% accuracy rate",
-      "50% faster query response",
+      "Hint system & win/lose tracking",
+      "Optimized database interactions",
     ],
     icon: Code,
     gradient: "from-[hsl(280,100%,65%)] via-[hsl(320,100%,60%)] to-primary",
     date: "Jan 2025",
     githubUrl: "https://github.com/CHAKRADHAR-CODE/AI-Word-Guess-Game",
-  },
-  {
-    title: "Amazon.in Clone Website",
-    tech: ["HTML", "Tailwind CSS"],
-    description: "A fully responsive e-commerce UI recreation with modern design patterns.",
-    highlights: [
-      "100% responsive design",
-      "95% Amazon layout match",
-      "40% dev time reduction",
-    ],
-    icon: Layout,
-    gradient: "from-[hsl(180,100%,50%)] via-primary to-[hsl(150,100%,50%)]",
-    date: "Nov 2024",
-    githubUrl: "https://github.com/CHAKRADHAR-CODE/amazon-clone-html",
   },
 ];
 
@@ -58,7 +45,7 @@ const ProjectsSection = () => {
 
       <div className="max-w-6xl mx-auto relative z-10">
         <AnimatedSection className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4 tracking-wide uppercase">
             Featured <span className="gradient-text">Projects</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">

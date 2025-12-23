@@ -20,7 +20,7 @@ const CertificationsSection = () => {
     <section id="certifications" className="py-20 px-4 relative overflow-hidden bg-gradient-to-b from-background via-card/30 to-background">
       <div className="max-w-4xl mx-auto relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4 tracking-wide uppercase">
             <span className="gradient-text">Certifications</span>
           </h2>
           <p className="text-muted-foreground">

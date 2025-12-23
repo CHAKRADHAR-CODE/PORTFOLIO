@@ -102,16 +102,46 @@ const CodingProfilesSection = () => {
       platform: "GeeksforGeeks",
       logo: GfgLogo,
       url: "https://www.geeksforgeeks.org/profile/chakradhardon",
-      stats: stats?.gfg ? [
-        { label: "Problems Solved", value: `${stats.gfg.totalSolved}+`, icon: Target },
-        { label: "Medium", value: `${stats.gfg.mediumSolved}`, icon: TrendingUp },
-        { label: "Hard", value: `${stats.gfg.hardSolved}`, icon: Star },
-        { label: "Day Streak", value: `${stats.gfg.streak}`, icon: Flame },
-      ] : [],
-      highlight: stats?.gfg ? `Rank ${stats.gfg.ranking} | Score ${stats.gfg.score}` : "Loading...",
-      verified: stats?.gfg?.verified,
+      stats: [
+        { label: "Problems Solved", value: "265+", icon: Target },
+        { label: "Medium", value: "186", icon: TrendingUp },
+        { label: "Hard", value: "36", icon: Star },
+        { label: "Day Streak", value: "263", icon: Flame },
+      ],
+      highlight: "Top Performer",
+      verified: true,
       color: "from-[#2F8D46] to-[#1a5c2d]",
       bgColor: "bg-[#2F8D46]/10",
+    },
+    {
+      platform: "CodeChef",
+      logo: CodeChefLogo,
+      url: "https://www.codechef.com/users/born_to_code01",
+      stats: [
+        { label: "Problems", value: "537+", icon: Target },
+        { label: "Contests", value: "8", icon: Trophy },
+        { label: "Rating", value: "1★", icon: Star },
+        { label: "Score", value: "1146", icon: TrendingUp },
+      ],
+      highlight: "Active competitor",
+      verified: true,
+      color: "from-[#5B4638] to-[#3d2e25]",
+      bgColor: "bg-[#5B4638]/10",
+    },
+    {
+      platform: "HackerRank",
+      logo: HackerRankLogo,
+      url: "https://www.hackerrank.com/profile/24B11AI054",
+      stats: [
+        { label: "Badges", value: "5", icon: Trophy },
+        { label: "Problem Solving", value: "4⭐", icon: Star },
+        { label: "C", value: "3⭐", icon: Star },
+        { label: "SQL/C++/Python", value: "2⭐", icon: Star },
+      ],
+      highlight: "Multi-domain Expert",
+      verified: true,
+      color: "from-[#00EA64] to-[#00b84d]",
+      bgColor: "bg-[#00EA64]/10",
     },
     {
       platform: "LeetCode",
@@ -128,35 +158,6 @@ const CodingProfilesSection = () => {
       color: "from-[#FFA116] to-[#cc8012]",
       bgColor: "bg-[#FFA116]/10",
     },
-    {
-      platform: "HackerRank",
-      logo: HackerRankLogo,
-      url: "https://www.hackerrank.com/profile/24B11AI054",
-      stats: stats?.hackerrank ? [
-        { label: "Badges", value: `${stats.hackerrank.badges}`, icon: Trophy },
-        { label: "C Stars", value: `${stats.hackerrank.additionalData?.cStars || 5}⭐`, icon: Star },
-        { label: "Problem Solving", value: `${stats.hackerrank.additionalData?.problemSolvingStars || 4}⭐`, icon: Target },
-        { label: "SQL/C++", value: `${stats.hackerrank.additionalData?.sqlCppStars || 2}⭐`, icon: TrendingUp },
-      ] : [],
-      highlight: "Strong in Python",
-      verified: stats?.hackerrank?.verified,
-      color: "from-[#00EA64] to-[#00b84d]",
-      bgColor: "bg-[#00EA64]/10",
-    },
-    {
-      platform: "CodeChef",
-      logo: CodeChefLogo,
-      url: "https://www.codechef.com/users/born_to_code01",
-      stats: stats?.codechef ? [
-        { label: "Problems", value: `${stats.codechef.totalSolved}+`, icon: Target },
-        { label: "Contests", value: `${stats.codechef.additionalData?.contests || 2}`, icon: Trophy },
-        { label: "Rating", value: stats.codechef.additionalData?.stars || "1★", icon: Star },
-      ] : [],
-      highlight: "Active competitor",
-      verified: stats?.codechef?.verified,
-      color: "from-[#5B4638] to-[#3d2e25]",
-      bgColor: "bg-[#5B4638]/10",
-    },
   ];
 
   return (
@@ -165,7 +166,7 @@ const CodingProfilesSection = () => {
 
       <div className="max-w-6xl mx-auto relative z-10">
         <AnimatedSection className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4 tracking-wide uppercase">
             Coding <span className="gradient-text">Profiles</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
