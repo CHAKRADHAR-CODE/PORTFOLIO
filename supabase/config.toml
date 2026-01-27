@@ -1,0 +1,7 @@
+project_id = "shfywpvekembtwiknqua"
+
+[functions.send-contact-email]
+verify_jwt = false
+
+[functions.fetch-coding-stats]
+verify_jwt = false
