@@ -18,7 +18,7 @@ const App = () => {
   return (
     <HelmetProvider>
       <QueryClientProvider client={queryClient}>
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} forcedTheme="dark">
           <TooltipProvider>
             {isLoading && <Preloader onComplete={() => setIsLoading(false)} />}
             <Toaster />

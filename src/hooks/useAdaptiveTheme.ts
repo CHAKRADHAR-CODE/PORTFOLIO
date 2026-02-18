@@ -1,25 +1,19 @@
 import { useState, useEffect, useMemo, useCallback } from "react";
 import { 
   Season, 
-  Festival, 
   DeviceType, 
   ThemeColors,
   seasonThemes, 
-  festivalConfigs,
   breakpoints,
   animationDensity,
-  FestivalConfig 
 } from "@/config/adaptiveTheme";
 
 interface AdaptiveThemeState {
   season: Season;
-  festival: Festival;
-  festivalConfig: FestivalConfig | null;
   deviceType: DeviceType;
   theme: ThemeColors;
   particleCount: number;
   orbCount: number;
-  decorationCount: number;
   prefersReducedMotion: boolean;
   isLowEndDevice: boolean;
 }
@@ -31,36 +25,32 @@ export const useAdaptiveTheme = (): AdaptiveThemeState => {
 
   // Detect current season based on month
   const season = useMemo((): Season => {
-    const month = new Date().getMonth() + 1; // 1-12
+    const month = new Date().getMonth() + 1;
     if (month >= 3 && month <= 5) return "spring";
     if (month >= 6 && month <= 8) return "summer";
     if (month >= 9 && month <= 11) return "autumn";
     return "winter";
   }, []);
 
-  // Detect current festival based on date
-  const { festival, festivalConfig } = useMemo((): { festival: Festival; festivalConfig: FestivalConfig | null } => {
-    const now = new Date();
-    const currentMonth = now.getMonth() + 1;
-    const currentDay = now.getDate();
-
-    for (const config of festivalConfigs) {
-      for (const range of config.dateRange) {
-        if (range.month === currentMonth && currentDay >= range.startDay && currentDay <= range.endDay) {
-          return { festival: config.name, festivalConfig: config };
-        }
-      }
-    }
-    return { festival: null, festivalConfig: null };
-  }, []);
-
-  // Get active theme (festival overrides season)
+  // Get seasonal theme
   const theme = useMemo((): ThemeColors => {
-    if (festivalConfig) {
-      return festivalConfig.theme;
-    }
     return seasonThemes[season];
-  }, [season, festivalConfig]);
+  }, [season]);
+
+  // Apply theme CSS variables to document root
+  useEffect(() => {
+    const root = document.documentElement;
+    root.style.setProperty("--theme-accent", theme.accentHsl);
+    root.style.setProperty("--theme-glow", theme.glowColor);
+    root.style.setProperty("--theme-particle", theme.particleColor);
+    root.classList.add("theme-transition");
+    
+    console.log(`🎨 Active Season: ${season.charAt(0).toUpperCase() + season.slice(1)}`);
+    
+    return () => {
+      root.classList.remove("theme-transition");
+    };
+  }, [theme, season]);
 
   // Detect device type
   const updateDeviceType = useCallback(() => {
@@ -87,11 +77,8 @@ export const useAdaptiveTheme = (): AdaptiveThemeState => {
   // Detect low-end device
   useEffect(() => {
     const checkPerformance = () => {
-      // Check hardware concurrency (CPU cores)
       const cores = navigator.hardwareConcurrency || 4;
-      // Check device memory (if available)
       const memory = (navigator as Navigator & { deviceMemory?: number }).deviceMemory || 4;
-      // Consider low-end if fewer than 4 cores or less than 4GB RAM
       setIsLowEndDevice(cores < 4 || memory < 4);
     };
     checkPerformance();
@@ -105,37 +92,32 @@ export const useAdaptiveTheme = (): AdaptiveThemeState => {
   }, [updateDeviceType]);
 
   // Calculate animation counts based on device and performance
-  const { particleCount, orbCount, decorationCount } = useMemo(() => {
+  const { particleCount, orbCount } = useMemo(() => {
     const base = animationDensity[deviceType];
     
     if (prefersReducedMotion) {
-      return { particleCount: 0, orbCount: 0, decorationCount: 0 };
+      return { particleCount: 0, orbCount: 0 };
     }
     
     if (isLowEndDevice) {
       return {
         particleCount: Math.floor(base.particles * 0.5),
         orbCount: Math.max(1, Math.floor(base.orbs * 0.5)),
-        decorationCount: Math.floor(base.decorations * 0.5),
       };
     }
     
     return {
       particleCount: base.particles,
       orbCount: base.orbs,
-      decorationCount: base.decorations,
     };
   }, [deviceType, prefersReducedMotion, isLowEndDevice]);
 
   return {
     season,
-    festival,
-    festivalConfig,
     deviceType,
     theme,
     particleCount,
     orbCount,
-    decorationCount,
     prefersReducedMotion,
     isLowEndDevice,
   };

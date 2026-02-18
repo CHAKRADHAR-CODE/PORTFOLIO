@@ -16,11 +16,10 @@ import ScrollProgress from "@/components/ScrollProgress";
 import AdaptiveBackground from "@/components/AdaptiveBackground";
 import LiveDateTime from "@/components/LiveDateTime";
 import FloatingElements from "@/components/FloatingElements";
-import FestivalGreeting from "@/components/FestivalGreeting";
 
 const Index = () => {
   useSmoothScroll();
-  const { festivalConfig, deviceType, prefersReducedMotion } = useAdaptiveTheme();
+  const { deviceType, prefersReducedMotion, theme, particleCount, orbCount, season } = useAdaptiveTheme();
 
   // Reduce floating elements on mobile
   const floatingCount = deviceType === "mobile" ? 8 : deviceType === "tablet" ? 15 : 20;
@@ -44,11 +43,15 @@ const Index = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Helmet>
 
-      {/* Adaptive Background with Season/Festival themes */}
-      <AdaptiveBackground />
-      
-      {/* Festival Greeting Toast */}
-      <FestivalGreeting festivalConfig={festivalConfig} />
+      {/* Adaptive Background with Season themes */}
+      <AdaptiveBackground 
+        theme={theme}
+        particleCount={particleCount}
+        orbCount={orbCount}
+        prefersReducedMotion={prefersReducedMotion}
+        deviceType={deviceType}
+        season={season}
+      />
       
       {/* UI Components */}
       <ScrollProgress />

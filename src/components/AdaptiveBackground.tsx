@@ -1,8 +1,23 @@
 import { useMemo, useEffect, useState } from "react";
-import useAdaptiveTheme from "@/hooks/useAdaptiveTheme";
+import { ThemeColors, DeviceType, Season } from "@/config/adaptiveTheme";
 
-const AdaptiveBackground = () => {
-  const { theme, particleCount, orbCount, decorationCount, festivalConfig, prefersReducedMotion, deviceType } = useAdaptiveTheme();
+interface AdaptiveBackgroundProps {
+  theme: ThemeColors;
+  particleCount: number;
+  orbCount: number;
+  prefersReducedMotion: boolean;
+  deviceType: DeviceType;
+  season: Season;
+}
+
+const AdaptiveBackground = ({ 
+  theme, 
+  particleCount, 
+  orbCount, 
+  prefersReducedMotion, 
+  deviceType,
+  season
+}: AdaptiveBackgroundProps) => {
   const [animationsActive, setAnimationsActive] = useState(true);
 
   // Stop ambient animations after 10 seconds on mobile to save battery
@@ -36,197 +51,122 @@ const AdaptiveBackground = () => {
     return positions.slice(0, orbCount);
   }, [orbCount]);
 
-  // Festival-specific decorations
-  const decorations = useMemo(() => {
-    if (!festivalConfig?.decorations) return [];
-    return [...Array(decorationCount)].map((_, i) => ({
-      id: i,
-      left: Math.random() * 100,
-      size: 8 + Math.random() * 12,
-      duration: 10 + Math.random() * 15,
-      delay: Math.random() * 10,
-      rotation: Math.random() * 360,
-    }));
-  }, [festivalConfig, decorationCount]);
+  // Season-specific decorations (no snowfall, clean particles only)
+  const renderSeasonDecorations = () => {
+    if (prefersReducedMotion || !animationsActive) return null;
 
-  const renderDecorations = () => {
-    if (!festivalConfig?.decorations || prefersReducedMotion) return null;
-
-    switch (festivalConfig.decorations) {
-      case "lights":
+    switch (season) {
+      case "winter":
+        // Soft frost particles — no snowfall, just subtle drifting orbs
         return (
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            {decorations.map((d) => (
+            {[...Array(8)].map((_, i) => (
               <div
-                key={d.id}
-                className="absolute rounded-full animate-pulse-soft"
+                key={i}
+                className="absolute rounded-full"
                 style={{
-                  left: `${d.left}%`,
-                  top: `-10px`,
-                  width: `${d.size}px`,
-                  height: `${d.size}px`,
-                  background: `radial-gradient(circle, hsl(${d.id % 3 === 0 ? '45,100%,60%' : d.id % 3 === 1 ? '30,100%,55%' : '0,100%,50%'} / 0.8), transparent)`,
-                  animationDuration: `${1 + (d.id % 3) * 0.5}s`,
-                  animationDelay: `${d.delay * 0.1}s`,
-                  boxShadow: `0 0 ${d.size * 2}px hsl(45,100%,60% / 0.5)`,
+                  left: `${10 + i * 11}%`,
+                  top: `${15 + (i % 4) * 20}%`,
+                  width: `${3 + Math.random() * 3}px`,
+                  height: `${3 + Math.random() * 3}px`,
+                  background: "hsl(200,60%,85%,0.35)",
+                  animation: `orb-float-slow ${14 + i * 2}s ease-in-out infinite`,
+                  animationDelay: `${i * 1.5}s`,
                 }}
               />
             ))}
           </div>
         );
 
-      case "snowflakes":
-        return animationsActive ? (
-          <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            {decorations.map((d) => (
-              <div
-                key={d.id}
-                className="absolute animate-snowfall"
-                style={{
-                  left: `${d.left}%`,
-                  top: `-20px`,
-                  width: `${d.size}px`,
-                  height: `${d.size}px`,
-                  background: theme.particleColor,
-                  borderRadius: "50%",
-                  animationDuration: `${d.duration}s`,
-                  animationDelay: `${d.delay}s`,
-                }}
-              />
-            ))}
-            <style>{`
-              @keyframes snowfall {
-                0% { transform: translateY(-20px) translateX(0) rotate(0deg); opacity: 0; }
-                10% { opacity: 0.8; }
-                90% { opacity: 0.4; }
-                100% { transform: translateY(100vh) translateX(50px) rotate(360deg); opacity: 0; }
-              }
-              .animate-snowfall { animation: snowfall linear infinite; }
-            `}</style>
-          </div>
-        ) : null;
-
-      case "fireworks":
+      case "autumn":
         return (
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            {decorations.slice(0, 8).map((d) => (
+            {[...Array(10)].map((_, i) => (
               <div
-                key={d.id}
-                className="absolute animate-firework"
-                style={{
-                  left: `${10 + d.left * 0.8}%`,
-                  bottom: `${20 + (d.id % 5) * 15}%`,
-                  width: `${d.size * 2}px`,
-                  height: `${d.size * 2}px`,
-                  background: `radial-gradient(circle, hsl(${d.id * 40},100%,60% / 0.8), transparent 70%)`,
-                  animationDelay: `${d.id * 0.8}s`,
-                }}
-              />
-            ))}
-            <style>{`
-              @keyframes firework {
-                0%, 100% { transform: scale(0); opacity: 0; }
-                50% { transform: scale(1); opacity: 1; }
-                70% { transform: scale(1.2); opacity: 0.5; }
-              }
-              .animate-firework { animation: firework 3s ease-out infinite; }
-            `}</style>
-          </div>
-        );
-
-      case "hearts":
-        return animationsActive ? (
-          <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            {decorations.map((d) => (
-              <div
-                key={d.id}
-                className="absolute animate-float-up text-xl sm:text-2xl"
-                style={{
-                  left: `${d.left}%`,
-                  bottom: `-30px`,
-                  animationDuration: `${d.duration}s`,
-                  animationDelay: `${d.delay}s`,
-                  opacity: 0.6,
-                }}
-              >
-                💕
-              </div>
-            ))}
-            <style>{`
-              @keyframes float-up {
-                0% { transform: translateY(0) rotate(0deg); opacity: 0; }
-                10% { opacity: 0.6; }
-                90% { opacity: 0.3; }
-                100% { transform: translateY(-100vh) rotate(20deg); opacity: 0; }
-              }
-              .animate-float-up { animation: float-up linear infinite; }
-            `}</style>
-          </div>
-        ) : null;
-
-      case "lanterns":
-        return (
-          <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            {decorations.slice(0, 10).map((d) => (
-              <div
-                key={d.id}
-                className="absolute animate-sway"
-                style={{
-                  left: `${d.left}%`,
-                  top: `${10 + (d.id % 4) * 20}%`,
-                  animationDuration: `${4 + d.id % 3}s`,
-                  animationDelay: `${d.delay * 0.2}s`,
-                }}
-              >
-                <div 
-                  className="w-4 h-6 sm:w-6 sm:h-8 rounded-full"
-                  style={{
-                    background: `radial-gradient(circle at 30% 30%, hsl(0,100%,55%), hsl(0,100%,40%))`,
-                    boxShadow: `0 0 20px hsl(45,100%,50% / 0.5)`,
-                  }}
-                />
-              </div>
-            ))}
-            <style>{`
-              @keyframes sway {
-                0%, 100% { transform: rotate(-5deg) translateX(0); }
-                50% { transform: rotate(5deg) translateX(10px); }
-              }
-              .animate-sway { animation: sway ease-in-out infinite; }
-            `}</style>
-          </div>
-        );
-
-      case "leaves":
-        return animationsActive ? (
-          <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            {decorations.map((d) => (
-              <div
-                key={d.id}
+                key={i}
                 className="absolute animate-leaf-fall"
                 style={{
-                  left: `${d.left}%`,
+                  left: `${Math.random() * 100}%`,
                   top: `-30px`,
-                  width: `${d.size}px`,
-                  height: `${d.size}px`,
-                  background: `hsl(${25 + d.id * 5},80%,${40 + d.id % 20}%)`,
+                  width: `${8 + Math.random() * 8}px`,
+                  height: `${8 + Math.random() * 8}px`,
+                  background: `hsl(${15 + i * 4},80%,${38 + (i % 15)}%)`,
                   borderRadius: "50% 0 50% 0",
-                  transform: `rotate(${d.rotation}deg)`,
-                  animationDuration: `${d.duration}s`,
-                  animationDelay: `${d.delay}s`,
+                  animationDuration: `${14 + Math.random() * 10}s`,
+                  animationDelay: `${Math.random() * 8}s`,
                 }}
               />
             ))}
             <style>{`
               @keyframes leaf-fall {
                 0% { transform: translateY(-30px) translateX(0) rotate(0deg); opacity: 0; }
-                10% { opacity: 0.7; }
-                100% { transform: translateY(100vh) translateX(100px) rotate(720deg); opacity: 0; }
+                10% { opacity: 0.6; }
+                100% { transform: translateY(100vh) translateX(80px) rotate(720deg); opacity: 0; }
               }
               .animate-leaf-fall { animation: leaf-fall linear infinite; }
             `}</style>
           </div>
-        ) : null;
+        );
+
+      case "spring":
+        return (
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            {[...Array(8)].map((_, i) => (
+              <div
+                key={i}
+                className="absolute animate-bloom-float"
+                style={{
+                  left: `${Math.random() * 100}%`,
+                  bottom: `-20px`,
+                  width: `${5 + Math.random() * 5}px`,
+                  height: `${5 + Math.random() * 5}px`,
+                  background: `hsl(${330 + i * 8},65%,75%,0.6)`,
+                  borderRadius: "50%",
+                  animationDuration: `${16 + Math.random() * 10}s`,
+                  animationDelay: `${Math.random() * 8}s`,
+                }}
+              />
+            ))}
+            <style>{`
+              @keyframes bloom-float {
+                0% { transform: translateY(0) translateX(0); opacity: 0; }
+                10% { opacity: 0.5; }
+                90% { opacity: 0.25; }
+                100% { transform: translateY(-100vh) translateX(25px); opacity: 0; }
+              }
+              .animate-bloom-float { animation: bloom-float linear infinite; }
+            `}</style>
+          </div>
+        );
+
+      case "summer":
+        return (
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            {[...Array(6)].map((_, i) => (
+              <div
+                key={i}
+                className="absolute animate-summer-shimmer"
+                style={{
+                  left: `${15 + Math.random() * 70}%`,
+                  top: `${15 + Math.random() * 70}%`,
+                  width: `${2 + Math.random() * 2}px`,
+                  height: `${2 + Math.random() * 2}px`,
+                  background: "hsl(45,90%,65%,0.6)",
+                  borderRadius: "50%",
+                  animationDuration: `${2.5 + Math.random() * 3}s`,
+                  animationDelay: `${Math.random() * 2}s`,
+                }}
+              />
+            ))}
+            <style>{`
+              @keyframes summer-shimmer {
+                0%, 100% { opacity: 0.2; transform: scale(1); }
+                50% { opacity: 0.8; transform: scale(1.4); }
+              }
+              .animate-summer-shimmer { animation: summer-shimmer ease-in-out infinite; }
+            `}</style>
+          </div>
+        );
 
       default:
         return null;
@@ -235,13 +175,30 @@ const AdaptiveBackground = () => {
 
   return (
     <div className="fixed inset-0 -z-10 transition-all duration-1000">
-      {/* Base Gradient */}
+      {/* Deep black base gradient */}
       <div className={`absolute inset-0 bg-gradient-to-b ${theme.gradient} transition-all duration-1000`} />
       
-      {/* Animated Noise Texture */}
-      <div className="absolute inset-0 noise-bg opacity-30" />
-      
-      {/* Floating Orbs - Responsive sizes */}
+      {/* Noise texture */}
+      <div className="absolute inset-0 noise-bg opacity-20" />
+
+      {/* CRT scan-line overlay — very subtle premium effect */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-20"
+        style={{
+          backgroundImage: "repeating-linear-gradient(0deg, transparent, transparent 2px, hsl(0 0% 0% / 0.08) 2px, hsl(0 0% 0% / 0.08) 3px)",
+          backgroundSize: "100% 3px",
+        }}
+      />
+
+      {/* Radial speed-lines — anime motif */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-30"
+        style={{
+          backgroundImage: "repeating-conic-gradient(hsl(0 85% 45% / 0.015) 0deg 1deg, transparent 1deg 10deg)",
+        }}
+      />
+
+      {/* Floating Orbs */}
       {!prefersReducedMotion && (
         <div className="absolute inset-0 overflow-hidden">
           {orbs.map((orb, i) => (
@@ -258,7 +215,7 @@ const AdaptiveBackground = () => {
                 width: `${deviceType === "mobile" ? orb.size * 0.5 : deviceType === "tablet" ? orb.size * 0.75 : orb.size}px`,
                 height: `${deviceType === "mobile" ? orb.size * 0.5 : deviceType === "tablet" ? orb.size * 0.75 : orb.size}px`,
                 background: theme.orbColors[i] || theme.orbColors[0],
-                filter: `blur(${deviceType === "mobile" ? 80 : deviceType === "tablet" ? 120 : 150}px)`,
+                filter: `blur(${deviceType === "mobile" ? 80 : deviceType === "tablet" ? 120 : 160}px)`,
                 transform: (orb as { centered?: boolean }).centered ? "translate(-50%, -50%)" : undefined,
               }}
             />
@@ -266,7 +223,7 @@ const AdaptiveBackground = () => {
         </div>
       )}
 
-      {/* Season-specific particles */}
+      {/* Floating particles */}
       {animationsActive && !prefersReducedMotion && (
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           {particles.map((p) => (
@@ -288,8 +245,8 @@ const AdaptiveBackground = () => {
           <style>{`
             @keyframes particle-float {
               0% { transform: translateY(-10px); opacity: 0; }
-              10% { opacity: 0.8; }
-              90% { opacity: 0.4; }
+              10% { opacity: 0.7; }
+              90% { opacity: 0.3; }
               100% { transform: translateY(100vh); opacity: 0; }
             }
             .animate-particle-float { animation: particle-float linear infinite; }
@@ -307,30 +264,34 @@ const AdaptiveBackground = () => {
             .animate-orb-float-medium { animation: orb-float-medium 15s ease-in-out infinite; }
             
             @keyframes pulse-slow {
-              0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
-              50% { opacity: 0.7; transform: translate(-50%, -50%) scale(1.1); }
+              0%, 100% { opacity: 0.4; transform: translate(-50%, -50%) scale(1); }
+              50% { opacity: 0.65; transform: translate(-50%, -50%) scale(1.08); }
             }
             .animate-pulse-slow { animation: pulse-slow 8s ease-in-out infinite; }
           `}</style>
         </div>
       )}
 
-      {/* Festival-specific decorations */}
-      {renderDecorations()}
+      {/* Season decorations */}
+      {renderSeasonDecorations()}
 
-      {/* Subtle Grid Pattern */}
+      {/* Grid pattern */}
       <div 
-        className="absolute inset-0 opacity-50"
+        className="absolute inset-0 opacity-40"
         style={{
-          backgroundImage: `linear-gradient(hsl(var(--primary) / 0.02) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary) / 0.02) 1px, transparent 1px)`,
-          backgroundSize: deviceType === "mobile" ? "50px 50px" : "100px 100px",
-          maskImage: "radial-gradient(ellipse at center, black 20%, transparent 80%)",
-          WebkitMaskImage: "radial-gradient(ellipse at center, black 20%, transparent 80%)",
+          backgroundImage: `linear-gradient(hsl(var(--primary) / 0.025) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary) / 0.025) 1px, transparent 1px)`,
+          backgroundSize: deviceType === "mobile" ? "50px 50px" : "80px 80px",
+          maskImage: "radial-gradient(ellipse at center, black 10%, transparent 75%)",
+          WebkitMaskImage: "radial-gradient(ellipse at center, black 10%, transparent 75%)",
         }}
       />
 
-      {/* Bottom fade for content */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
+      {/* Bottom fade */}
+      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-background to-transparent" />
+
+      {/* Left & right edge vignette */}
+      <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-background/60 to-transparent" />
+      <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-background/60 to-transparent" />
     </div>
   );
 };

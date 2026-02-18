@@ -87,7 +87,8 @@ export default {
   		},
 		fontFamily: {
 			sans: [
-				'Inter',
+				'Exo 2',
+				'Rajdhani',
 				'ui-sans-serif',
 				'system-ui',
 				'-apple-system',
@@ -98,6 +99,12 @@ export default {
 				'Orbitron',
 				'ui-sans-serif',
 				'system-ui',
+				'sans-serif'
+			],
+			gaming: [
+				'Rajdhani',
+				'Exo 2',
+				'ui-sans-serif',
 				'sans-serif'
 			],
 			mono: [

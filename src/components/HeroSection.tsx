@@ -47,68 +47,86 @@ const HeroSection = () => {
 
   return (
     <section ref={sectionRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Premium Background */}
+      {/* Deep black base */}
       <div className="absolute inset-0 bg-background" />
       
-      {/* Interactive Gradient that follows mouse */}
+      {/* Anime speed lines radial pattern */}
+      <div className="absolute inset-0 speed-lines opacity-60" />
+
+      {/* Scan line effect */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: "repeating-linear-gradient(0deg, transparent, transparent 3px, hsl(0 0% 0% / 0.03) 3px, hsl(0 0% 0% / 0.03) 4px)",
+          backgroundSize: "100% 4px",
+        }}
+      />
+      
+      {/* Interactive red gradient orb following mouse */}
       <div 
-        className="absolute w-[600px] h-[600px] rounded-full bg-primary/10 blur-[150px] transition-all duration-1000 ease-out pointer-events-none"
+        className="absolute w-[500px] h-[500px] rounded-full blur-[160px] transition-all duration-1000 ease-out pointer-events-none"
         style={{
           left: `${mousePosition.x}%`,
           top: `${mousePosition.y}%`,
           transform: 'translate(-50%, -50%)',
+          background: "hsl(0 85% 45% / 0.08)",
         }}
       />
       
-      {/* Gradient Orbs */}
-      <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] rounded-full bg-primary/10 blur-[150px] animate-orb-float" />
-      <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] rounded-full bg-[hsl(280,100%,70%,0.08)] blur-[120px] animate-orb-float" style={{ animationDelay: '-4s' }} />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-[hsl(200,100%,60%,0.05)] blur-[180px] animate-pulse-soft" />
-      
+      {/* Static ambient orbs */}
+      <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full blur-[180px] animate-orb-float"
+        style={{ background: "hsl(0 85% 45% / 0.07)" }} />
+      <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full blur-[140px] animate-orb-float"
+        style={{ background: "hsl(348 80% 40% / 0.06)", animationDelay: '-5s' }} />
+
       {/* Animated Grid Pattern */}
       <div 
-        className="absolute inset-0 bg-[linear-gradient(hsl(var(--primary)/0.03)_1px,transparent_1px),linear-gradient(90deg,hsl(var(--primary)/0.03)_1px,transparent_1px)] bg-[size:80px_80px] [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_70%)]"
+        className="absolute inset-0 bg-[linear-gradient(hsl(0_85%_55%/0.025)_1px,transparent_1px),linear-gradient(90deg,hsl(0_85%_55%/0.025)_1px,transparent_1px)] bg-[size:80px_80px] [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_70%)]"
         style={{
-          transform: `translate(${(mousePosition.x - 50) * 0.02}px, ${(mousePosition.y - 50) * 0.02}px)`,
+          transform: `translate(${(mousePosition.x - 50) * 0.015}px, ${(mousePosition.y - 50) * 0.015}px)`,
         }}
       />
 
-      {/* Floating Particles with enhanced animation */}
+      {/* Red energy particles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(40)].map((_, i) => (
+        {[...Array(30)].map((_, i) => (
           <div
             key={i}
             className="absolute rounded-full animate-float-particle"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
-              width: `${2 + Math.random() * 4}px`,
-              height: `${2 + Math.random() * 4}px`,
-              background: i % 3 === 0 
-                ? 'hsl(var(--primary) / 0.6)' 
-                : i % 3 === 1 
-                  ? 'hsl(280 100% 65% / 0.5)' 
-                  : 'hsl(var(--foreground) / 0.3)',
-              animationDuration: `${8 + Math.random() * 12}s`,
+              width: `${1.5 + Math.random() * 2.5}px`,
+              height: `${1.5 + Math.random() * 2.5}px`,
+              background: i % 4 === 0
+                ? 'hsl(0 85% 58% / 0.7)'
+                : i % 4 === 1
+                  ? 'hsl(348 80% 55% / 0.5)'
+                  : i % 4 === 2
+                    ? 'hsl(15 90% 55% / 0.4)'
+                    : 'hsl(0 0% 70% / 0.2)',
+              animationDuration: `${10 + Math.random() * 14}s`,
               animationDelay: `${Math.random() * 5}s`,
-              boxShadow: i % 3 === 0 ? '0 0 10px hsl(var(--primary) / 0.5)' : 'none',
             }}
           />
         ))}
       </div>
 
-      {/* Shooting Stars Effect */}
+      {/* Diagonal energy slashes — anime motif */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(3)].map((_, i) => (
+        {[...Array(4)].map((_, i) => (
           <div
             key={i}
-            className="absolute w-[2px] h-[100px] bg-gradient-to-b from-primary via-primary/50 to-transparent"
+            className="absolute opacity-[0.04]"
             style={{
-              left: `${20 + i * 30}%`,
-              top: '-100px',
-              animation: `shooting-star ${3 + i}s ease-in-out infinite`,
-              animationDelay: `${i * 2}s`,
-              transform: 'rotate(45deg)',
+              left: `${5 + i * 25}%`,
+              top: 0,
+              bottom: 0,
+              width: '1px',
+              background: `linear-gradient(180deg, transparent, hsl(0 85% 58%), transparent)`,
+              transform: 'skewX(-20deg)',
+              animation: `energy-pulse ${4 + i}s ease-in-out infinite`,
+              animationDelay: `${i * 0.8}s`,
             }}
           />
         ))}
@@ -118,7 +136,7 @@ const HeroSection = () => {
       <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
         {/* Status Badge */}
         <div 
-          className={`inline-flex items-center gap-3 px-5 py-2.5 rounded-full glass-card-strong mb-8 transition-all duration-1000 ${
+          className={`inline-flex items-center gap-3 px-5 py-2.5 rounded-full glass-card mb-8 transition-all duration-1000 ${
             isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
@@ -126,20 +144,21 @@ const HeroSection = () => {
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
             <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
           </span>
-          <span className="text-sm font-medium text-muted-foreground">
+          <span className="text-sm font-medium text-muted-foreground tracking-widest uppercase" style={{ fontFamily: "'Rajdhani', sans-serif" }}>
             Open to Opportunities
           </span>
           <Sparkles className="w-4 h-4 text-amber-400 animate-pulse" />
         </div>
 
-        {/* Main Heading with staggered reveal */}
+        {/* Main Heading */}
         <div className="space-y-4 mb-8">
           <p 
-            className={`text-lg md:text-xl text-muted-foreground font-medium transition-all duration-1000 delay-100 ${
+            className={`text-base md:text-lg text-muted-foreground font-medium tracking-[0.3em] uppercase transition-all duration-1000 delay-100 ${
               isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}
+            style={{ fontFamily: "'Rajdhani', sans-serif" }}
           >
-            Hello, I'm
+            // Hello, I'm
           </p>
           
           <h1 
@@ -147,7 +166,7 @@ const HeroSection = () => {
               isLoaded ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-10 scale-95'
             }`}
           >
-            <span className="text-foreground inline-block hover:text-primary transition-colors duration-300">
+            <span className="text-foreground inline-block">
               CHAKRADHAR CHOWDARY
             </span>
             <br />
@@ -156,32 +175,39 @@ const HeroSection = () => {
             </span>
           </h1>
           
+          {/* Divider bar — anime style */}
+          <div className={`flex items-center justify-center gap-4 transition-all duration-700 delay-250 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+            <div className="h-px w-16 bg-gradient-to-r from-transparent to-primary" />
+            <div className="h-1 w-1 rounded-full bg-primary" />
+            <div className="h-px w-16 bg-gradient-to-l from-transparent to-primary" />
+          </div>
+          
           <div 
-            className={`h-16 md:h-20 flex items-center justify-center transition-all duration-1000 delay-300 ${
+            className={`h-14 md:h-18 flex items-center justify-center transition-all duration-1000 delay-300 ${
               isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}
           >
-            <span className="text-2xl sm:text-3xl md:text-4xl font-semibold gradient-text">
+            <span className="text-xl sm:text-2xl md:text-3xl font-semibold gradient-text tracking-widest" style={{ fontFamily: "'Rajdhani', sans-serif" }}>
               {displayText}
-              <span className="inline-block w-[3px] h-8 md:h-10 bg-primary ml-1 animate-[typewriter-blink_1s_infinite]" />
+              <span className="inline-block w-[3px] h-7 md:h-9 bg-primary ml-1 animate-[typewriter-blink_1s_infinite]" />
             </span>
           </div>
         </div>
 
         {/* Description */}
         <p 
-          className={`text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed transition-all duration-1000 delay-400 ${
+          className={`text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed transition-all duration-1000 delay-400 ${
             isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
           B.Tech in AI & Machine Learning at{" "}
-          <span className="text-foreground font-medium">Aditya University</span>
-          {" "}with a{" "}
-          <span className="text-primary font-semibold">8.7 GPA</span>.
-          Passionate about building innovative solutions.
+          <span className="text-foreground font-semibold">Aditya University</span>
+          {" "}— GPA{" "}
+          <span className="text-primary font-bold">8.7 / 10</span>.
+          Building innovative solutions at the intersection of code and intelligence.
         </p>
 
-        {/* CTA Buttons with magnetic effect */}
+        {/* CTA Buttons */}
         <div 
           className={`flex flex-col sm:flex-row items-center justify-center gap-4 mb-12 transition-all duration-1000 delay-500 ${
             isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
@@ -191,11 +217,12 @@ const HeroSection = () => {
             <Button
               size="lg"
               onClick={() => scrollToSection("projects")}
-              className="group relative overflow-hidden px-8 py-6 text-base font-semibold glow-primary-subtle hover:glow-primary transition-all duration-500"
+              className="group relative overflow-hidden px-8 py-6 text-base font-bold glow-primary-subtle hover:glow-primary transition-all duration-500 tracking-widest"
+              style={{ fontFamily: "'Rajdhani', sans-serif" }}
             >
-              <span className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary-foreground/10 to-primary/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
+              <span className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary-foreground/5 to-primary/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
               <Zap className="w-5 h-5 mr-2 group-hover:animate-pulse" />
-              View My Projects
+              VIEW PROJECTS
             </Button>
           </MagneticButton>
           
@@ -204,15 +231,16 @@ const HeroSection = () => {
               size="lg"
               variant="outline"
               onClick={() => scrollToSection("contact")}
-              className="px-8 py-6 text-base font-semibold border-border/50 hover:border-primary/50 hover:bg-primary/5 transition-all duration-300"
+              className="px-8 py-6 text-base font-bold border-primary/30 hover:border-primary/60 hover:bg-primary/5 transition-all duration-300 tracking-widest"
+              style={{ fontFamily: "'Rajdhani', sans-serif" }}
             >
               <Mail className="w-5 h-5 mr-2" />
-              Get In Touch
+              GET IN TOUCH
             </Button>
           </MagneticButton>
         </div>
 
-        {/* Social Links with stagger animation */}
+        {/* Social Links */}
         <div 
           className={`flex items-center justify-center gap-3 transition-all duration-1000 delay-[600ms] ${
             isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
@@ -232,7 +260,7 @@ const HeroSection = () => {
                 aria-label={social.label}
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
-                <social.icon className="w-5 h-5 text-muted-foreground group-hover:text-primary group-hover:scale-110 transition-all duration-300" />
+                <social.icon className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-all duration-300" />
               </a>
             </MagneticButton>
           ))}
@@ -247,54 +275,35 @@ const HeroSection = () => {
         }`}
       >
         <div className="flex flex-col items-center gap-2 text-muted-foreground group-hover:text-primary transition-colors">
-          <span className="text-xs font-medium tracking-widest uppercase">Scroll</span>
+          <span className="text-xs font-bold tracking-[0.4em] uppercase" style={{ fontFamily: "'Rajdhani', sans-serif" }}>Scroll</span>
           <div className="relative">
             <ArrowDown className="w-5 h-5 animate-bounce" />
-            <ArrowDown className="w-5 h-5 absolute top-0 left-0 animate-ping opacity-30" />
+            <ArrowDown className="w-5 h-5 absolute top-0 left-0 animate-ping opacity-20" />
           </div>
         </div>
       </button>
 
-      {/* CSS for shooting stars */}
       <style>{`
-        @keyframes shooting-star {
-          0% {
-            transform: translateY(-100px) translateX(0) rotate(45deg);
-            opacity: 0;
-          }
-          10% {
-            opacity: 1;
-          }
-          30% {
-            opacity: 1;
-          }
-          100% {
-            transform: translateY(calc(100vh + 100px)) translateX(200px) rotate(45deg);
-            opacity: 0;
-          }
-        }
-        
         @keyframes float-particle {
           0%, 100% {
             transform: translateY(0) translateX(0) scale(1);
-            opacity: 0.6;
+            opacity: 0.5;
           }
-          25% {
-            transform: translateY(-30px) translateX(15px) scale(1.1);
-            opacity: 1;
+          33% {
+            transform: translateY(-25px) translateX(12px) scale(1.1);
+            opacity: 0.9;
           }
-          50% {
-            transform: translateY(-15px) translateX(-15px) scale(0.9);
-            opacity: 0.8;
-          }
-          75% {
-            transform: translateY(-45px) translateX(10px) scale(1.05);
-            opacity: 1;
+          66% {
+            transform: translateY(-12px) translateX(-12px) scale(0.9);
+            opacity: 0.7;
           }
         }
-        
         .animate-float-particle {
           animation: float-particle 10s ease-in-out infinite;
+        }
+        @keyframes energy-pulse {
+          0%, 100% { opacity: 0.03; transform: skewX(-20deg) scaleY(1); }
+          50% { opacity: 0.08; transform: skewX(-20deg) scaleY(1.02); }
         }
       `}</style>
     </section>

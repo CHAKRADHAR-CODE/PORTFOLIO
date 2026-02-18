@@ -52,20 +52,22 @@ const FloatingElements = ({ count = 20, className }: FloatingElementsProps) => {
         />
       ))}
       
-      {/* Glowing orbs */}
+      {/* Glowing orbs - Red morph */}
       <div 
-        className="absolute w-64 h-64 rounded-full bg-primary/5 blur-3xl"
+        className="absolute w-64 h-64 rounded-full blur-3xl"
         style={{
           left: "10%",
           top: "20%",
+          background: "hsl(0 85% 45% / 0.06)",
           animation: "orb-float 15s ease-in-out infinite",
         }}
       />
       <div 
-        className="absolute w-48 h-48 rounded-full bg-[hsl(280,100%,65%,0.05)] blur-3xl"
+        className="absolute w-48 h-48 rounded-full blur-3xl"
         style={{
           right: "15%",
           bottom: "30%",
+          background: "hsl(348 80% 40% / 0.05)",
           animation: "orb-float 20s ease-in-out infinite reverse",
         }}
       />

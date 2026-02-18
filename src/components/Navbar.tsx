@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import ThemeToggle from "./ThemeToggle";
 
 const navLinks = [
   { label: "About", href: "#about" },
@@ -60,11 +59,11 @@ const Navbar = () => {
           className="relative group"
         >
           <span className="text-lg font-heading font-bold tracking-wider">
-            <span className="text-muted-foreground">&lt;</span>
+            <span className="text-primary/60">&lt;</span>
             <span className="gradient-text-static">CHAKRADHAR</span>
-            <span className="text-muted-foreground">/&gt;</span>
+            <span className="text-primary/60">/&gt;</span>
           </span>
-          <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-[hsl(280,100%,70%)] group-hover:w-full transition-all duration-300" />
+          <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-gradient-to-r from-primary to-transparent group-hover:w-full transition-all duration-400" />
         </button>
 
         {/* Desktop Links */}
@@ -92,8 +91,6 @@ const Navbar = () => {
 
         {/* Right Side */}
         <div className="flex items-center gap-3">
-          <ThemeToggle />
-          
           <Button
             size="sm"
             onClick={() => scrollToSection("#contact")}
