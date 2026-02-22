@@ -9,6 +9,7 @@ import { ThemeProvider } from "next-themes";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Preloader from "./components/Preloader";
+import PWAInstallBanner from "./components/PWAInstallBanner";
 
 const queryClient = new QueryClient();
 
@@ -23,6 +24,7 @@ const App = () => {
             {isLoading && <Preloader onComplete={() => setIsLoading(false)} />}
             <Toaster />
             <Sonner />
+            <PWAInstallBanner />
             <BrowserRouter>
               <Routes>
                 <Route path="/" element={<Index />} />
