@@ -112,13 +112,14 @@ const AppDetailPage = () => {
           <section className="pt-6">
             <div className="relative rounded-3xl overflow-hidden glass-card-strong">
               {/* Banner */}
-              <div className="relative aspect-[2.4/1] md:aspect-[3/1] overflow-hidden">
+              <div className="relative aspect-[2/1] md:aspect-[41/20] overflow-hidden bg-[hsl(0_0%_5%)]">
+                <div className={`absolute inset-0 bg-gradient-to-br ${app.accent} opacity-40`} />
                 <SmartImage
                   src={app.banner}
                   alt={`${app.name} banner`}
-                  className="w-full h-full object-cover"
+                  className="relative w-full h-full object-contain"
                   fallback={
-                    <div className={`w-full h-full bg-gradient-to-r ${app.accent} flex items-center justify-center`}>
+                    <div className={`relative w-full h-full bg-gradient-to-r ${app.accent} flex items-center justify-center`}>
                       <div className="flex items-center gap-3 text-white/90">
                         <Gamepad2 className="w-12 h-12" />
                         <span className="text-3xl md:text-5xl font-bold tracking-widest uppercase">{app.name}</span>
@@ -126,7 +127,7 @@ const AppDetailPage = () => {
                     </div>
                   }
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
                 <span className="absolute top-4 right-4 px-3 py-1 rounded-full text-[11px] font-bold tracking-widest uppercase bg-black/40 text-white border border-white/20 backdrop-blur-md">
                   {app.tag}
                 </span>
@@ -201,27 +202,29 @@ const AppDetailPage = () => {
               <h2 className="text-2xl font-heading font-bold">
                 <span className="gradient-text">Screenshots</span>
               </h2>
-              <span className="text-xs text-muted-foreground">{app.screenshots.length} images</span>
+              <div className="flex gap-1.5 items-center">
+                {Array.from({ length: Math.min(app.screenshots.length, 5) }).map((_, i) => (
+                  <span key={i} className="w-1.5 h-1.5 rounded-full bg-primary/60" />
+                ))}
+              </div>
             </div>
-            <div className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory screenshot-scroll">
+            <div className="flex gap-5 overflow-x-auto pb-4 snap-x snap-mandatory screenshot-scroll">
               {app.screenshots.map((shot, index) => (
                 <div
                   key={shot}
-                  className="w-40 h-72 md:w-48 md:h-80 rounded-2xl overflow-hidden shrink-0 snap-start glass-card-strong"
+                  className="group relative w-[250px] md:w-[340px] aspect-[3/2] rounded-2xl overflow-hidden shrink-0 snap-start bg-[hsl(0_0%_5%)] ring-1 ring-white/10 hover:ring-primary/50 transition-all duration-300"
                 >
                   <SmartImage
                     src={shot}
                     alt={`${app.name} screenshot ${index + 1}`}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain"
                     fallback={
-                      <div className={`w-full h-full bg-gradient-to-br ${app.accent} flex flex-col items-center justify-center gap-3 p-4`}>
-                        <Gamepad2 className="w-10 h-10 text-white/80" />
-                        <span className="text-white/80 text-xs font-bold tracking-widest uppercase text-center">
-                          Screenshot {index + 1}
-                        </span>
+                      <div className={`w-full h-full bg-gradient-to-br ${app.accent} flex items-center justify-center`}>
+                        <Gamepad2 className="w-12 h-12 text-white/80" />
                       </div>
                     }
                   />
+                  <div className="absolute inset-0 bg-gradient-to-tr from-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                 </div>
               ))}
             </div>

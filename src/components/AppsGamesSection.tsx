@@ -65,13 +65,14 @@ const AppsGamesSection = () => {
 
                 <div className="relative glass-card-strong rounded-3xl overflow-hidden h-full transition-all duration-500 group-hover:-translate-y-2 flex flex-col">
                   {/* Banner */}
-                  <div className="relative aspect-[2.2/1] overflow-hidden">
+                  <div className="relative aspect-[2/1] overflow-hidden bg-[hsl(0_0%_5%)]">
+                    <div className={`absolute inset-0 bg-gradient-to-br ${app.accent} opacity-40`} />
                     <SmartImage
                       src={app.banner}
                       alt={`${app.name} banner`}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      className="relative w-full h-full object-contain transition-transform duration-700 group-hover:scale-[1.02]"
                       fallback={
-                        <div className={`w-full h-full bg-gradient-to-r ${app.accent} flex items-center justify-center`}>
+                        <div className={`relative w-full h-full bg-gradient-to-r ${app.accent} flex items-center justify-center`}>
                           <div className="flex items-center gap-3 text-white/90">
                             <Gamepad2 className="w-10 h-10" />
                             <span className="text-2xl font-bold tracking-widest uppercase">{app.name}</span>
