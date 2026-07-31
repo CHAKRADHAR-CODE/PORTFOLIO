@@ -8,8 +8,10 @@ import { HelmetProvider } from "react-helmet-async";
 import { ThemeProvider } from "next-themes";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import AppDetailPage from "./pages/AppDetailPage";
 import Preloader from "./components/Preloader";
 import PWAInstallBanner from "./components/PWAInstallBanner";
+import ScrollManager from "./components/ScrollManager";
 
 const queryClient = new QueryClient();
 
@@ -26,8 +28,10 @@ const App = () => {
             <Sonner />
             <PWAInstallBanner />
             <BrowserRouter>
+              <ScrollManager />
               <Routes>
                 <Route path="/" element={<Index />} />
+                <Route path="/apps/:appId" element={<AppDetailPage />} />
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />
               </Routes>

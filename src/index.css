@@ -361,6 +361,9 @@
   .accent-projects {
     --module-accent: var(--premium-crimson);
   }
+  .accent-apps {
+    --module-accent: 340 80% 55%;
+  }
   .accent-coding {
     --module-accent: 142 70% 45%;
   }
@@ -682,4 +685,26 @@
 
 .animate-accordion-up {
   animation: accordion-up 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ============================================
+   PLAY STORE STYLE SCREENSHOT SCROLL
+   ============================================ */
+
+.screenshot-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--primary) / 0.5) transparent;
+}
+
+.screenshot-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+
+.screenshot-scroll::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary) / 0.5);
+  border-radius: 3px;
+}
+
+.screenshot-scroll::-webkit-scrollbar-track {
+  background: transparent;
 }
