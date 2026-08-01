@@ -39,7 +39,7 @@ const certifications = [
     ],
     color: "from-[hsl(45,100%,66%)] to-[hsl(30,80%,50%)]",
     bgGlow: "bg-[hsl(38,95%,55%,0.2)]",
-    logoImg: "/certificates/redhat.png",
+    logoImg: "/certificates/redhat.svg",
     logo: "🎖️",
     description: "Linux Administration",
   },
