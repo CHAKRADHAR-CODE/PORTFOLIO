@@ -68,7 +68,7 @@ const AboutSection = () => {
 
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Section Header */}
-        <AnimatedSection className="text-center mb-16">
+        <AnimatedSection className="text-center mb-16 section-header">
           <span className="inline-block px-4 py-1.5 rounded-full glass-card text-xs font-bold text-[hsl(220_80%_65%)] mb-4 tracking-[0.3em] uppercase border border-[hsl(220_80%_55%/0.3)]">
             // About Me
           </span>

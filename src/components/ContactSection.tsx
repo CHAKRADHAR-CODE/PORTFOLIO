@@ -84,7 +84,7 @@ const ContactSection = () => {
 
         <div className="max-w-6xl mx-auto relative z-10">
           {/* Header */}
-          <AnimatedSection className="text-center mb-16">
+          <AnimatedSection className="text-center mb-16 section-header">
             <span className="inline-block px-4 py-2 rounded-full glass-card text-sm font-medium text-primary mb-4">
               Get In Touch
             </span>

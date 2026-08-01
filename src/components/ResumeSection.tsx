@@ -92,7 +92,7 @@ const ResumeSection = () => {
                   </div>
 
                   {/* Content */}
-                  <div className="text-center md:text-left">
+                  <div className="text-center md:text-left section-header left">
                     <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full glass-card text-xs font-bold text-primary mb-5 tracking-[0.3em] uppercase border border-primary/30">
                       <Sparkles className="w-3.5 h-3.5" />
                       Open To Work

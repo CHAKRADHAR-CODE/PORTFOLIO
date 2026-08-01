@@ -23,7 +23,9 @@ const Footer = () => {
   };
 
   return (
-    <footer className="relative py-16 px-4 border-t border-border/30 bg-gradient-to-t from-muted/20 to-transparent">
+    <footer className="relative py-16 px-4 border-t border-primary/15 bg-gradient-to-t from-muted/20 to-transparent">
+      {/* Top hairline */}
+      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="grid md:grid-cols-3 gap-12 mb-12">
           {/* Brand */}

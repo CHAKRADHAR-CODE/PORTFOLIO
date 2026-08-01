@@ -49,10 +49,13 @@ const Navbar = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "py-3 glass-card-strong border-b border-border/30"
+          ? "py-3 glass-card-strong border-b border-primary/15 shadow-[0_10px_40px_-10px_hsl(0_0%_0%/0.8)]"
           : "py-5"
       }`}
     >
+      {/* Top hairline accent when scrolled */}
+      <div className={`absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-primary/70 to-transparent transition-opacity duration-500 ${scrolled ? "opacity-100" : "opacity-0"}`} />
+
       <div className="max-w-6xl mx-auto px-4 flex items-center justify-between">
         {/* Logo */}
         <button
@@ -61,10 +64,10 @@ const Navbar = () => {
         >
           <span className="text-lg font-heading font-bold tracking-wider">
             <span className="text-primary/60">&lt;</span>
-            <span className="gradient-text-static">CHAKRADHAR</span>
+            <span className="gradient-text-static drop-shadow-[0_0_12px_hsl(0_90%_58%/0.45)]">CHAKRADHAR</span>
             <span className="text-primary/60">/&gt;</span>
           </span>
-          <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-gradient-to-r from-primary to-transparent group-hover:w-full transition-all duration-400" />
+          <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-gradient-to-r from-primary via-[hsl(348_88%_52%)] to-transparent group-hover:w-full transition-all duration-400" />
         </button>
 
         {/* Desktop Links */}
@@ -83,7 +86,7 @@ const Navbar = () => {
               >
                 {link.label}
                 {isActive && (
-                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-primary" />
+                  <span className="absolute -bottom-0 left-1/2 -translate-x-1/2 w-6 h-[2px] rounded-full bg-gradient-to-r from-primary to-[hsl(340_90%_62%)] shadow-[0_0_8px_hsl(0_90%_58%/0.8)]" />
                 )}
               </button>
             );
@@ -103,7 +106,7 @@ const Navbar = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="p-2 lg:hidden text-muted-foreground hover:text-foreground transition-colors"
+            className="p-2 lg:hidden text-muted-foreground hover:text-primary transition-colors"
             aria-label="Toggle menu"
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}

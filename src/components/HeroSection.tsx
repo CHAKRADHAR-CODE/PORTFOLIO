@@ -75,9 +75,12 @@ const HeroSection = () => {
       
       {/* Static ambient orbs */}
       <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full blur-[180px] animate-orb-float"
-        style={{ background: "hsl(0 85% 45% / 0.07)" }} />
+        style={{ background: "hsl(0 85% 45% / 0.11)" }} />
       <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full blur-[140px] animate-orb-float"
-        style={{ background: "hsl(348 80% 40% / 0.06)", animationDelay: '-5s' }} />
+        style={{ background: "hsl(348 80% 40% / 0.09)", animationDelay: '-5s' }} />
+
+      {/* Top red vignette */}
+      <div className="absolute inset-x-0 top-0 h-[40vh] pointer-events-none bg-[radial-gradient(ellipse_60%_100%_at_50%_0%,hsl(0_85%_50%/0.07),transparent_70%)]" />
 
       {/* Animated Grid Pattern */}
       <div 
@@ -136,7 +139,7 @@ const HeroSection = () => {
       <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
         {/* Status Badge */}
         <div 
-          className={`inline-flex items-center gap-3 px-5 py-2.5 rounded-full glass-card mb-8 transition-all duration-1000 ${
+          className={`inline-flex items-center gap-3 px-5 py-2.5 rounded-full glass-card glow-primary-subtle mb-8 transition-all duration-1000 ${
             isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
@@ -166,7 +169,7 @@ const HeroSection = () => {
               isLoaded ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-10 scale-95'
             }`}
           >
-            <span className="text-foreground inline-block">
+            <span className="inline-block bg-clip-text text-transparent bg-[linear-gradient(180deg,hsl(0_0%_100%),hsl(0_0%_72%))]">
               CHAKRADHAR CHOWDARY
             </span>
             <br />

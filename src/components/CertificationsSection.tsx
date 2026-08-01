@@ -38,7 +38,7 @@ const CertificationsSection = () => {
       </div>
 
       <div className="max-w-4xl mx-auto relative z-10">
-        <AnimatedSection className="text-center mb-16">
+        <AnimatedSection className="text-center mb-16 section-header">
           <span className="inline-block px-4 py-2 rounded-full glass-card text-primary text-sm font-medium mb-4">
             🏆 Achievements
           </span>

@@ -40,7 +40,7 @@ const ProjectsSection = () => {
       <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-primary/60 to-transparent" />
 
       <div className="max-w-6xl mx-auto relative z-10">
-        <AnimatedSection className="text-center mb-16">
+        <AnimatedSection className="text-center mb-16 section-header">
           <span className="inline-block px-4 py-1.5 rounded-full glass-card text-xs font-bold text-primary mb-4 tracking-[0.3em] uppercase border border-primary/30">
             <Code className="w-3.5 h-3.5 inline mr-1.5" />
             // My Work
