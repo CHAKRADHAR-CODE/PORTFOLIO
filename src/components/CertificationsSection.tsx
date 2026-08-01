@@ -1,36 +1,56 @@
+import { useState } from "react";
 import { Award, CheckCircle, ExternalLink } from "lucide-react";
 import StaggerItem from "./StaggerItem";
 import AnimatedSection from "./AnimatedSection";
+
+const ProviderLogo = ({ image, emoji }: { image: string; emoji: string }) => {
+  const [failed, setFailed] = useState(false);
+  if (!image || failed) {
+    return <span className="text-4xl">{emoji}</span>;
+  }
+  return (
+    <img
+      src={image}
+      alt=""
+      loading="lazy"
+      onError={() => setFailed(true)}
+      className="w-10 h-10 object-contain"
+    />
+  );
+};
 
 const certifications = [
   {
     provider: "Microsoft",
     certs: [
-      { name: "Power BI Data Analyst", verified: true, image: "" },
-      { name: "Excel Expert", verified: true, image: "" },
+      { name: "Power BI Data Analyst", verified: true },
+      { name: "Excel Expert", verified: true },
     ],
     color: "from-[hsl(45,100%,66%)] to-[hsl(38,95%,54%)]",
     bgGlow: "bg-[hsl(45,100%,66%,0.2)]",
+    logoImg: "/certificates/microsoft.png",
     logo: "📊",
     description: "Data Analysis & Visualization",
   },
   {
     provider: "Red Hat",
     certs: [
-      { name: "RHCSA — System Administrator", verified: true, image: "" },
+      { name: "RHCSA — System Administrator", verified: true },
     ],
     color: "from-[hsl(45,100%,66%)] to-[hsl(30,80%,50%)]",
     bgGlow: "bg-[hsl(38,95%,55%,0.2)]",
+    logoImg: "/certificates/redhat.png",
     logo: "🎖️",
     description: "Linux Administration",
   },
   {
     provider: "Cambridge",
     certs: [
-      { name: "English Empower B2 Level", verified: true, image: "" },
+      { name: "English Empower B2 Level", verified: true },
     ],
     color: "from-[hsl(43,95%,60%)] to-[hsl(35,85%,50%)]",
     bgGlow: "bg-[hsl(43,95%,60%,0.2)]",
+    logoImg: "/certificates/cambridge.png",
     logo: "🎓",
     description: "Communication & English",
   },
@@ -68,8 +88,8 @@ const CertificationsSection = () => {
                 <div className="relative glass-card rounded-2xl p-8 hover:-translate-y-2 transition-all duration-500 h-full border border-transparent group-hover:border-primary/20">
                   {/* Header */}
                   <div className="flex items-center gap-4 mb-6">
-                    <div className={`relative w-16 h-16 rounded-xl ${cert.bgGlow} flex items-center justify-center`}>
-                      <span className="text-4xl">{cert.logo}</span>
+                    <div className={`relative w-16 h-16 rounded-xl ${cert.bgGlow} flex items-center justify-center p-2`}>
+                      <ProviderLogo image={cert.logoImg} emoji={cert.logo} />
                       <div className={`absolute inset-0 bg-gradient-to-r ${cert.color} opacity-0 group-hover:opacity-20 rounded-xl transition-opacity duration-500`} />
                     </div>
                     <div>
@@ -83,41 +103,15 @@ const CertificationsSection = () => {
                     {cert.certs.map((c, certIndex) => (
                       <div
                         key={c.name}
-                        className={`flex items-center gap-3 p-3 rounded-lg bg-background/50 border border-border/50 transition-all duration-300 group/cert ${
-                          c.image
-                            ? "hover:border-primary/50 hover:bg-primary/5 cursor-pointer"
-                            : "hover:border-primary/50 hover:bg-primary/5"
-                        }`}
+                        className="flex items-center gap-3 p-3 rounded-lg bg-background/50 border border-border/50 hover:border-primary/50 hover:bg-primary/5 transition-all duration-300 group/cert"
                         style={{ transitionDelay: `${certIndex * 50}ms` }}
                       >
                         <div className={`p-1.5 rounded-full bg-gradient-to-r ${cert.color}`}>
                           <Award className="w-4 h-4 text-primary-foreground" />
                         </div>
                         <span className="font-medium flex-1">{c.name}</span>
-                        {c.image ? (
-                          <a
-                            href={c.image}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            title="View Certificate"
-                            className="shrink-0"
-                          >
-                            <div className="relative w-14 h-10 rounded-md overflow-hidden border border-border/60 group/cert-img">
-                              <img
-                                src={c.image}
-                                alt={`${c.name} certificate`}
-                                loading="lazy"
-                                className="w-full h-full object-cover transition-transform duration-300 group-hover/cert-img:scale-110"
-                              />
-                              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover/cert-img:opacity-100 transition-opacity flex items-center justify-center">
-                                <ExternalLink className="w-3.5 h-3.5 text-white" />
-                              </div>
-                            </div>
-                          </a>
-                        ) : (
-                          c.verified && (
-                            <CheckCircle className="w-4 h-4 text-emerald-500 shrink-0" />
-                          )
+                        {c.verified && (
+                          <CheckCircle className="w-4 h-4 text-emerald-500 shrink-0" />
                         )}
                       </div>
                     ))}
