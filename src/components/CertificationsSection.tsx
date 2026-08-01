@@ -6,8 +6,8 @@ const certifications = [
   {
     provider: "Microsoft",
     certs: [
-      { name: "Power BI Data Analyst", verified: true },
-      { name: "Excel Expert", verified: true },
+      { name: "Power BI Data Analyst", verified: true, image: "" },
+      { name: "Excel Expert", verified: true, image: "" },
     ],
     color: "from-[hsl(45,100%,66%)] to-[hsl(38,95%,54%)]",
     bgGlow: "bg-[hsl(45,100%,66%,0.2)]",
@@ -17,7 +17,7 @@ const certifications = [
   {
     provider: "Red Hat",
     certs: [
-      { name: "RHCSA — System Administrator", verified: true },
+      { name: "RHCSA — System Administrator", verified: true, image: "" },
     ],
     color: "from-[hsl(45,100%,66%)] to-[hsl(30,80%,50%)]",
     bgGlow: "bg-[hsl(38,95%,55%,0.2)]",
@@ -27,7 +27,7 @@ const certifications = [
   {
     provider: "Cambridge",
     certs: [
-      { name: "English Empower B2 Level", verified: true },
+      { name: "English Empower B2 Level", verified: true, image: "" },
     ],
     color: "from-[hsl(43,95%,60%)] to-[hsl(35,85%,50%)]",
     bgGlow: "bg-[hsl(43,95%,60%,0.2)]",
@@ -83,15 +83,41 @@ const CertificationsSection = () => {
                     {cert.certs.map((c, certIndex) => (
                       <div
                         key={c.name}
-                        className="flex items-center gap-3 p-3 rounded-lg bg-background/50 border border-border/50 hover:border-primary/50 hover:bg-primary/5 transition-all duration-300 group/cert cursor-pointer"
+                        className={`flex items-center gap-3 p-3 rounded-lg bg-background/50 border border-border/50 transition-all duration-300 group/cert ${
+                          c.image
+                            ? "hover:border-primary/50 hover:bg-primary/5 cursor-pointer"
+                            : "hover:border-primary/50 hover:bg-primary/5"
+                        }`}
                         style={{ transitionDelay: `${certIndex * 50}ms` }}
                       >
                         <div className={`p-1.5 rounded-full bg-gradient-to-r ${cert.color}`}>
                           <Award className="w-4 h-4 text-primary-foreground" />
                         </div>
                         <span className="font-medium flex-1">{c.name}</span>
-                        {c.verified && (
-                          <CheckCircle className="w-4 h-4 text-emerald-500" />
+                        {c.image ? (
+                          <a
+                            href={c.image}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            title="View Certificate"
+                            className="shrink-0"
+                          >
+                            <div className="relative w-14 h-10 rounded-md overflow-hidden border border-border/60 group/cert-img">
+                              <img
+                                src={c.image}
+                                alt={`${c.name} certificate`}
+                                loading="lazy"
+                                className="w-full h-full object-cover transition-transform duration-300 group-hover/cert-img:scale-110"
+                              />
+                              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover/cert-img:opacity-100 transition-opacity flex items-center justify-center">
+                                <ExternalLink className="w-3.5 h-3.5 text-white" />
+                              </div>
+                            </div>
+                          </a>
+                        ) : (
+                          c.verified && (
+                            <CheckCircle className="w-4 h-4 text-emerald-500 shrink-0" />
+                          )
                         )}
                       </div>
                     ))}

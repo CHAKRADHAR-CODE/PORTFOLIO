@@ -4,6 +4,13 @@ import { useLocation } from "react-router-dom";
 const ScrollManager = () => {
   const { pathname, hash } = useLocation();
 
+  // Disable native scroll restoration so a page refresh always starts at the top
+  useEffect(() => {
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+  }, []);
+
   useEffect(() => {
     if (hash && pathname === "/") {
       const id = hash.replace("#", "");

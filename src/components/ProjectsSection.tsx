@@ -24,16 +24,6 @@ const projects = [
     highlights: ["Real-time Tracking", "Team Project", "Database Integration"],
     date: "Dec 2025",
   },
-  {
-    title: "AI-Based Word Game",
-    description: "A Python-based word game integrated with MySQL, managing a database of 200+ words. Implemented core game logic with 5 chances per round and win/lose tracking with optimized queries.",
-    tech: ["Python", "MySQL", "AI/ML", "Game Logic"],
-    github: "https://github.com/CHAKRADHAR-CODE/AI-Word-Guess-Game",
-    live: null,
-    featured: false,
-    highlights: ["AI-Powered", "Database Optimization", "Game Development"],
-    date: "Mar 2025",
-  },
 ];
 
 const ProjectsSection = () => {
