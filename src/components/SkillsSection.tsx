@@ -1,38 +1,39 @@
 import { useState } from "react";
-import { Code2, Globe, Database, Wrench, Brain, Terminal, Layers, Cpu, Cloud, Palette, Monitor, Server } from "lucide-react";
+import { Code2, Globe, Database, Wrench, Terminal, Layers, Palette, Monitor } from "lucide-react";
 import AnimatedSection from "./AnimatedSection";
 
 const categories = [
   { id: "languages", label: "Languages", icon: Code2 },
   { id: "web", label: "Web Dev", icon: Globe },
-  { id: "ml", label: "ML & Data", icon: Brain },
+  { id: "databases", label: "Databases", icon: Database },
   { id: "tools", label: "Tools", icon: Wrench },
 ];
 
 const skillsData: Record<string, Array<{ name: string; icon: React.ComponentType<any>; level: string }>> = {
   languages: [
-    { name: "Python", icon: Terminal, level: "Advanced" },
     { name: "C++", icon: Code2, level: "Advanced" },
+    { name: "Java", icon: Terminal, level: "Intermediate" },
+    { name: "Python", icon: Terminal, level: "Advanced" },
     { name: "C", icon: Terminal, level: "Intermediate" },
     { name: "SQL", icon: Database, level: "Advanced" },
   ],
   web: [
     { name: "HTML5", icon: Globe, level: "Advanced" },
     { name: "CSS3", icon: Palette, level: "Advanced" },
-    { name: "React", icon: Layers, level: "Intermediate" },
-    { name: "Tailwind", icon: Palette, level: "Intermediate" },
+    { name: "JavaScript", icon: Layers, level: "Advanced" },
+    { name: "TypeScript", icon: Layers, level: "Intermediate" },
   ],
-  ml: [
-    { name: "NumPy", icon: Brain, level: "Advanced" },
-    { name: "Pandas", icon: Database, level: "Advanced" },
-    { name: "Scikit-learn", icon: Brain, level: "Intermediate" },
+  databases: [
+    { name: "MongoDB", icon: Database, level: "Advanced" },
     { name: "MySQL", icon: Database, level: "Advanced" },
   ],
   tools: [
     { name: "Git", icon: Code2, level: "Advanced" },
+    { name: "GitHub", icon: Code2, level: "Advanced" },
+    { name: "Linux", icon: Terminal, level: "Intermediate" },
     { name: "VS Code", icon: Monitor, level: "Advanced" },
     { name: "Power BI", icon: Layers, level: "Intermediate" },
-    { name: "Linux", icon: Terminal, level: "Intermediate" },
+    { name: "Excel", icon: Layers, level: "Intermediate" },
   ],
 };
 

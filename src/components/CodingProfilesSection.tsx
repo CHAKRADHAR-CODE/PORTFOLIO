@@ -51,13 +51,13 @@ const CodingProfilesSection = () => {
       console.error("Error fetching stats:", err);
       // Fallback stats
       setStats({
-        leetcode: { platform: "leetcode", totalSolved: 307, easySolved: 164, mediumSolved: 104, hardSolved: 39, ranking: 411886, badges: 0, streak: 55, score: 0, additionalData: {}, verified: true, lastUpdated: new Date().toISOString() },
-        gfg: { platform: "gfg", totalSolved: 285, easySolved: 0, mediumSolved: 0, hardSolved: 0, ranking: 118, badges: 0, streak: 264, score: 1133, additionalData: { potdsSolved: 264 }, verified: true, lastUpdated: new Date().toISOString() },
-        codechef: { platform: "codechef", totalSolved: 573, easySolved: 0, mediumSolved: 0, hardSolved: 0, ranking: 0, badges: 0, streak: 0, score: 1185, additionalData: { stars: "1★", contests: 12 }, verified: true, lastUpdated: new Date().toISOString() },
-        codeforces: { platform: "codeforces", totalSolved: 0, easySolved: 0, mediumSolved: 0, hardSolved: 0, ranking: 0, badges: 0, streak: 0, score: 0, additionalData: { rank: "Newbie" }, verified: true, lastUpdated: new Date().toISOString() },
+        leetcode: { platform: "leetcode", totalSolved: 369, easySolved: 180, mediumSolved: 140, hardSolved: 49, ranking: 250000, badges: 0, streak: 60, score: 0, additionalData: {}, verified: true, lastUpdated: new Date().toISOString() },
+        gfg: { platform: "gfg", totalSolved: 318, easySolved: 0, mediumSolved: 0, hardSolved: 0, ranking: 118, badges: 0, streak: 273, score: 1133, additionalData: { potdsSolved: 273 }, verified: true, lastUpdated: new Date().toISOString() },
+        codechef: { platform: "codechef", totalSolved: 627, easySolved: 0, mediumSolved: 0, hardSolved: 0, ranking: 0, badges: 0, streak: 0, score: 1185, additionalData: { stars: "1★", contests: 12 }, verified: true, lastUpdated: new Date().toISOString() },
+        codeforces: { platform: "codeforces", totalSolved: 47, easySolved: 0, mediumSolved: 0, hardSolved: 0, ranking: 0, badges: 0, streak: 0, score: 0, additionalData: { rank: "Newbie", maxRating: 0 }, verified: true, lastUpdated: new Date().toISOString() },
         cses: { platform: "cses", totalSolved: 0, easySolved: 0, mediumSolved: 0, hardSolved: 0, ranking: 0, badges: 0, streak: 0, score: 0, additionalData: { focus: "Algorithms" }, verified: true, lastUpdated: new Date().toISOString() },
-        hackerrank: { platform: "hackerrank", totalSolved: 0, easySolved: 0, mediumSolved: 0, hardSolved: 0, ranking: 0, badges: 13, streak: 0, score: 0, additionalData: { cStars: 5, problemSolvingStars: 4 }, verified: true, lastUpdated: new Date().toISOString() },
-        summary: { totalProblems: 1165, platforms: 6, maxStreak: 264, totalBadges: 13, lastUpdated: new Date().toISOString() },
+        hackerrank: { platform: "hackerrank", totalSolved: 0, easySolved: 0, mediumSolved: 0, hardSolved: 0, ranking: 0, badges: 6, streak: 0, score: 0, additionalData: { problemSolvingStars: 4 }, verified: true, lastUpdated: new Date().toISOString() },
+        summary: { totalProblems: 1361, platforms: 6, maxStreak: 273, totalBadges: 6, lastUpdated: new Date().toISOString() },
       });
     } finally {
       setLoading(false);
@@ -101,10 +101,10 @@ const CodingProfilesSection = () => {
       logo: "https://upload.wikimedia.org/wikipedia/commons/e/eb/GeeksForGeeks_logo.png",
       url: "https://www.geeksforgeeks.org/profile/chakradhardon",
       stats: [
-        { label: "Problems Solved", value: "285+", icon: Target },
+        { label: "Problems Solved", value: "318+", icon: Target },
         { label: "Coding Score", value: "1133", icon: TrendingUp },
         { label: "Institute Rank", value: "#118", icon: Star },
-        { label: "POTDs Solved", value: "264", icon: Flame },
+        { label: "POTDs Solved", value: "273", icon: Flame },
       ],
       highlight: "Top Performer",
       verified: true,
@@ -117,7 +117,7 @@ const CodingProfilesSection = () => {
       logo: "https://i.pinimg.com/474x/c5/d9/fc/c5d9fc1e18bcf039f464c2ab6cfb3eb6.jpg",
       url: "https://www.codechef.com/users/born_to_code01",
       stats: [
-        { label: "Problems Solved", value: "573+", icon: Target },
+        { label: "Problems Solved", value: "627+", icon: Target },
         { label: "Contests", value: "12", icon: Trophy },
         { label: "Rating", value: "1★", icon: Star },
         { label: "Score", value: "1185", icon: TrendingUp },
@@ -165,12 +165,12 @@ const CodingProfilesSection = () => {
       logo: "https://upload.wikimedia.org/wikipedia/commons/6/65/HackerRank_logo.png",
       url: "https://www.hackerrank.com/profile/24B11AI054",
       stats: [
-        { label: "Badges", value: "13", icon: Trophy },
+        { label: "Badges", value: "6", icon: Trophy },
         { label: "Problem Solving", value: "4⭐", icon: Star },
-        { label: "C", value: "5⭐", icon: Star },
-        { label: "SQL/C++/Python", value: "2⭐", icon: Star },
+        { label: "Domains", value: "SQL · C++", icon: Star },
+        { label: "Certificates", value: "6+", icon: Star },
       ],
-      highlight: "Multi-domain Expert",
+      highlight: "Certified Skills",
       verified: true,
       color: "from-[#00EA64] to-[#00b84d]",
       bgColor: "bg-[#00EA64]/10",
@@ -214,10 +214,10 @@ const CodingProfilesSection = () => {
         <AnimatedSection animation="scale" delay={100}>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
             {[
-              { label: "Total Problems", value: "1165+", icon: Target, color: "text-emerald-500" },
+              { label: "Total Problems", value: "1361+", icon: Target, color: "text-emerald-500" },
               { label: "Platforms", value: "6", icon: Trophy, color: "text-amber-500" },
-              { label: "Max Streak", value: "264 days", icon: Flame, color: "text-orange-500" },
-              { label: "Badges", value: "13+", icon: Star, color: "text-primary" },
+              { label: "Max Streak", value: "273 days", icon: Flame, color: "text-orange-500" },
+              { label: "Badges", value: "6+", icon: Star, color: "text-primary" },
             ].map((stat, index) => (
               <StaggerItem key={stat.label} index={index} baseDelay={100} animation="scale">
                 <div className="glass-card rounded-xl p-5 text-center hover:glow-primary transition-all duration-300 hover:-translate-y-2 group">

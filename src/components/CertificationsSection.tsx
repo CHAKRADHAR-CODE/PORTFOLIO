@@ -9,22 +9,30 @@ const certifications = [
       { name: "Power BI Data Analyst", verified: true },
       { name: "Excel Expert", verified: true },
     ],
-    color: "from-blue-500 to-cyan-500",
-    bgGlow: "bg-blue-500/20",
-    logo: "🏢",
+    color: "from-[hsl(45,100%,66%)] to-[hsl(38,95%,54%)]",
+    bgGlow: "bg-[hsl(45,100%,66%,0.2)]",
+    logo: "📊",
     description: "Data Analysis & Visualization",
   },
   {
-    provider: "Cisco",
+    provider: "Red Hat",
     certs: [
-      { name: "C++ Programming", verified: true },
-      { name: "C Programming", verified: true },
-      { name: "Cybersecurity Essentials", verified: true },
+      { name: "RHCSA — System Administrator", verified: true },
     ],
-    color: "from-[hsl(45,100%,66%)] to-[hsl(38,95%,54%)]",
-    bgGlow: "bg-[hsl(45,100%,66%,0.2)]",
-    logo: "🔐",
-    description: "Programming & Security",
+    color: "from-[hsl(45,100%,66%)] to-[hsl(30,80%,50%)]",
+    bgGlow: "bg-[hsl(38,95%,55%,0.2)]",
+    logo: "🎖️",
+    description: "Linux Administration",
+  },
+  {
+    provider: "Cambridge",
+    certs: [
+      { name: "English Empower B2 Level", verified: true },
+    ],
+    color: "from-[hsl(43,95%,60%)] to-[hsl(35,85%,50%)]",
+    bgGlow: "bg-[hsl(43,95%,60%,0.2)]",
+    logo: "🎓",
+    description: "Communication & English",
   },
 ];
 
@@ -50,7 +58,7 @@ const CertificationsSection = () => {
           </p>
         </AnimatedSection>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {certifications.map((cert, index) => (
             <StaggerItem key={cert.provider} index={index} baseDelay={100} animation="fade-up">
               <div className="group relative h-full">
@@ -101,9 +109,9 @@ const CertificationsSection = () => {
         <AnimatedSection animation="scale" delay={400} className="mt-12">
           <div className="flex flex-wrap justify-center gap-8">
             {[
-              { label: "Certifications", value: "5+" },
-              { label: "Platforms", value: "2" },
-              { label: "Domains", value: "4+" },
+              { label: "Certifications", value: "3+" },
+              { label: "Platforms", value: "3" },
+              { label: "Domains", value: "3+" },
             ].map((stat) => (
               <div 
                 key={stat.label}
@@ -113,6 +121,18 @@ const CertificationsSection = () => {
                 <p className="text-sm text-muted-foreground">{stat.label}</p>
               </div>
             ))}
+          </div>
+          <div className="mt-8 text-center">
+            <a
+              href="https://www.credly.com/users/chakradhar-gunnam/badges/credly"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl glass-card text-sm font-bold text-primary hover:bg-primary/10 border border-primary/30 hover:border-primary/60 transition-all duration-300 tracking-wider"
+              style={{ fontFamily: "'Rajdhani', sans-serif" }}
+            >
+              <ExternalLink className="w-4 h-4" />
+              VIEW ALL CERTIFICATIONS ON CREDLY
+            </a>
           </div>
         </AnimatedSection>
       </div>

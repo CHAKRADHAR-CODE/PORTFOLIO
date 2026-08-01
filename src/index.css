@@ -6,9 +6,21 @@
 @tailwind components;
 @tailwind utilities;
 
+@property --angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@property --border-flow-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
 /* 
   ============================================
-  PREMIUM RED & BLACK MORPH DESIGN SYSTEM
+  PREMIUM BLACK & GOLD GAMING DESIGN SYSTEM
   World-class developer portfolio aesthetics
   ============================================
 */
@@ -285,6 +297,96 @@
     animation: border-spin 4s linear infinite;
   }
 
+  /* Gaming - rotating conic gold border (premium accent) */
+  .border-flow {
+    position: relative;
+  }
+
+  .border-flow::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1.5px;
+    background: conic-gradient(
+      from var(--border-flow-angle, 0deg),
+      transparent 0deg,
+      hsl(var(--premium-gold-bright) / 0.9) 60deg,
+      hsl(var(--premium-gold) / 0.35) 120deg,
+      transparent 180deg,
+      hsl(var(--premium-amber) / 0.4) 260deg,
+      transparent 330deg
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    animation: border-rotate 5s linear infinite;
+  }
+
+  /* Gaming - hover scan shine across cards */
+  .hover-scan {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hover-scan::after {
+    content: '';
+    position: absolute;
+    top: -10%;
+    bottom: -10%;
+    left: -45%;
+    width: 45%;
+    background: linear-gradient(105deg, transparent, hsl(var(--premium-gold-bright) / 0.14), transparent);
+    transform: skewX(-20deg);
+    pointer-events: none;
+  }
+
+  .hover-scan:hover::after {
+    animation: scan-sweep 0.9s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  /* Gaming - chromatic glitch on hover (hero name) */
+  .glitch {
+    position: relative;
+    display: inline-block;
+  }
+
+  .glitch::before,
+  .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    pointer-events: none;
+    clip-path: inset(50% 0 50% 0);
+    background: none;
+    -webkit-background-clip: initial;
+    background-clip: initial;
+    -webkit-text-fill-color: currentColor;
+  }
+
+  .glitch:hover::before {
+    opacity: 0.75;
+    color: hsl(var(--premium-gold-bright));
+    transform: translate(-3px, -2px);
+    clip-path: inset(20% 0 55% 0);
+    animation: glitch-slice-1 0.45s steps(2, end) infinite;
+  }
+
+  .glitch:hover::after {
+    opacity: 0.75;
+    color: hsl(var(--premium-amber));
+    transform: translate(3px, 2px);
+    clip-path: inset(60% 0 15% 0);
+    animation: glitch-slice-2 0.55s steps(2, end) infinite;
+  }
+
+  /* Gaming - energy pulse for live/status dots */
+  .energy-dot {
+    animation: energy-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
   /* Glow Effects - subtle, no text glow */
   .glow-primary {
     box-shadow: 
@@ -444,6 +546,26 @@
 @keyframes border-spin {
   from { --angle: 0deg; }
   to { --angle: 360deg; }
+}
+
+@keyframes border-rotate {
+  from { --border-flow-angle: 0deg; }
+  to { --border-flow-angle: 360deg; }
+}
+
+@keyframes scan-sweep {
+  from { left: -45%; }
+  to { left: 145%; }
+}
+
+@keyframes glitch-slice-1 {
+  0%, 100% { clip-path: inset(20% 0 55% 0); transform: translate(-3px, -2px); }
+  50% { clip-path: inset(5% 0 70% 0); transform: translate(-6px, -1px); }
+}
+
+@keyframes glitch-slice-2 {
+  0%, 100% { clip-path: inset(60% 0 15% 0); transform: translate(3px, 2px); }
+  50% { clip-path: inset(75% 0 5% 0); transform: translate(6px, 1px); }
 }
 
 @keyframes float {

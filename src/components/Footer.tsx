@@ -14,7 +14,7 @@ const Footer = () => {
 
   const socialLinks = [
     { icon: Mail, href: "mailto:chakradhar.gunnam@gmail.com", label: "Email" },
-    { icon: Linkedin, href: "https://www.linkedin.com/in/chakradhar-chowdary-gunnam-910070333", label: "LinkedIn" },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/chakradhar-gunnam/", label: "LinkedIn" },
     { icon: Github, href: "https://github.com/CHAKRADHAR-CODE", label: "GitHub" },
   ];
 
@@ -76,7 +76,7 @@ const Footer = () => {
               +91 8341792799
             </a>
             <p className="text-sm text-muted-foreground">
-              Andhra Pradesh, India
+              Kakinada, Andhra Pradesh
             </p>
 
             {/* Social */}

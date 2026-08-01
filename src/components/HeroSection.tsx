@@ -144,7 +144,7 @@ const HeroSection = () => {
           }`}
         >
           <span className="relative flex h-2.5 w-2.5">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+            <span className="energy-dot absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
             <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
           </span>
           <span className="text-sm font-medium text-muted-foreground tracking-widest uppercase" style={{ fontFamily: "'Rajdhani', sans-serif" }}>
@@ -169,7 +169,7 @@ const HeroSection = () => {
               isLoaded ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-10 scale-95'
             }`}
           >
-            <span className="inline-block bg-clip-text text-transparent bg-[linear-gradient(180deg,hsl(0_0%_100%),hsl(0_0%_72%))]">
+            <span data-text="CHAKRADHAR CHOWDARY" className="glitch inline-block bg-clip-text text-transparent bg-[linear-gradient(180deg,hsl(0_0%_100%),hsl(0_0%_72%))]">
               CHAKRADHAR CHOWDARY
             </span>
             <br />
@@ -205,8 +205,8 @@ const HeroSection = () => {
         >
           B.Tech in AI & Machine Learning at{" "}
           <span className="text-foreground font-semibold">Aditya University</span>
-          {" "}— GPA{" "}
-          <span className="text-primary font-bold">8.7 / 10</span>.
+          {" "}— CGPA{" "}
+          <span className="text-primary font-bold">7.81 / 10</span>.
           Building innovative solutions at the intersection of code and intelligence.
         </p>
 
@@ -251,7 +251,7 @@ const HeroSection = () => {
         >
           {[
             { href: "mailto:chakradhar.gunnam@gmail.com", icon: Mail, label: "Email" },
-            { href: "https://www.linkedin.com/in/chakradhar-chowdary-gunnam-910070333", icon: Linkedin, label: "LinkedIn" },
+            { href: "https://www.linkedin.com/in/chakradhar-gunnam/", icon: Linkedin, label: "LinkedIn" },
             { href: "https://github.com/CHAKRADHAR-CODE", icon: Github, label: "GitHub" },
           ].map((social, index) => (
             <MagneticButton key={social.label} strength={0.3}>

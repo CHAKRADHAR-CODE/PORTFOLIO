@@ -1,10 +1,10 @@
-import { GraduationCap, MapPin, Calendar, Briefcase, Target, Code2, Database, Wrench, Award } from "lucide-react";
+import { GraduationCap, MapPin, Calendar, Briefcase, Target, Code2, Database, Wrench, Award, Globe } from "lucide-react";
 import AnimatedSection from "./AnimatedSection";
 
 const highlights = [
   { icon: Target, label: "Focus", value: "AI/ML & Full Stack" },
-  { icon: MapPin, label: "Location", value: "India" },
-  { icon: Briefcase, label: "Status", value: "Student" },
+  { icon: MapPin, label: "Location", value: "Kakinada, India" },
+  { icon: Briefcase, label: "Status", value: "Full Stack Intern" },
   { icon: Calendar, label: "Graduation", value: "2028" },
 ];
 
@@ -12,23 +12,30 @@ const skills = [
   {
     category: "Languages",
     icon: Code2,
-    items: ["Python (NumPy, Pandas)", "C++", "SQL"],
+    items: ["C++", "Java", "Python", "C", "SQL"],
     accent: "from-primary to-[hsl(38_90%_40%)]",
     accentColor: "text-primary",
   },
   {
-    category: "ML/Database",
-    icon: Database,
-    items: ["Supervised Learning", "MySQL", "Query Optimization"],
+    category: "Web Technologies",
+    icon: Globe,
+    items: ["HTML", "CSS", "JavaScript", "TypeScript"],
     accent: "from-[hsl(45_100%_60%)] to-[hsl(38_95%_50%)]",
     accentColor: "text-[hsl(43_95%_62%)]",
   },
   {
-    category: "Tools",
-    icon: Wrench,
-    items: ["Git", "Power BI", "VS Code", "Linux"],
+    category: "Databases",
+    icon: Database,
+    items: ["MongoDB", "MySQL"],
     accent: "from-[hsl(35_70%_50%)] to-[hsl(30_65%_42%)]",
     accentColor: "text-[hsl(38_80%_60%)]",
+  },
+  {
+    category: "Tools",
+    icon: Wrench,
+    items: ["Git", "GitHub", "Linux", "VS Code", "Power BI", "Excel"],
+    accent: "from-primary to-[hsl(38_90%_40%)]",
+    accentColor: "text-primary",
   },
 ];
 
@@ -37,7 +44,7 @@ const education = [
     degree: "B.Tech in AI & ML",
     institution: "Aditya University",
     year: "2028",
-    grade: "GPA: 8.7/10",
+    grade: "CGPA: 7.81",
     current: true,
   },
   {
@@ -45,13 +52,6 @@ const education = [
     institution: "Subha Niketan School",
     year: "2024",
     grade: "70%",
-    current: false,
-  },
-  {
-    degree: "CBSE X",
-    institution: "Boon School",
-    year: "2022",
-    grade: "68%",
     current: false,
   },
 ];
@@ -187,9 +187,9 @@ const AboutSection = () => {
             <h3 className="text-sm font-bold mb-6 text-center tracking-[0.3em] uppercase text-muted-foreground" style={{ fontFamily: "'Rajdhani', sans-serif" }}>// Experience Highlights</h3>
             <div className="grid md:grid-cols-3 gap-6">
               {[
-                { value: "5+", label: "Courses Completed", desc: "C, Python, C++, SQL, DSA" },
-                { value: "10+", label: "Lab Assignments", desc: "Hands-on coding practice" },
-                { value: "4+", label: "Academic Projects", desc: "Real-world applications" },
+                { value: "627+", label: "Problems Solved", desc: "LeetCode, GFG, CodeChef & more" },
+                { value: "2", label: "Projects", desc: "CertiHub & Library Seat Reservation" },
+                { value: "3+", label: "Certifications", desc: "Microsoft, Red Hat & Cambridge" },
               ].map((stat) => (
                 <div key={stat.label} className="text-center p-4 rounded-2xl border border-border/20 bg-muted/10">
                   <p className="text-4xl font-black gradient-text mb-2 font-heading">{stat.value}</p>

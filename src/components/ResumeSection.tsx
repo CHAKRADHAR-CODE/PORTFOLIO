@@ -25,10 +25,10 @@ const ResumeSection = () => {
   };
 
   const highlights = [
-    "8.7 GPA at Aditya University",
-    "1000+ Problems Solved",
-    "Multiple Certifications",
-    "AI/ML Specialization",
+    "7.81 CGPA at Aditya University",
+    "1361+ Problems Solved",
+    "RHCSA & Microsoft Certified",
+    "Full Stack Development Intern",
   ];
 
   return (
@@ -45,7 +45,7 @@ const ResumeSection = () => {
               {/* Animated gradient border glow */}
               <div className="absolute -inset-[1px] rounded-[2rem] bg-gradient-to-r from-primary via-[hsl(38,95%,54%)] to-[hsl(45,100%,68%)] opacity-0 group-hover:opacity-70 transition-all duration-700 blur-md" />
 
-              <div className="relative glass-card-strong rounded-[2rem] overflow-hidden">
+              <div className="relative glass-card-strong rounded-[2rem] overflow-hidden hover-scan">
                 {/* Top accent line */}
                 <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-primary via-[hsl(38,95%,54%)] to-transparent" />
 

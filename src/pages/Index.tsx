@@ -17,6 +17,7 @@ import ScrollProgress from "@/components/ScrollProgress";
 import AdaptiveBackground from "@/components/AdaptiveBackground";
 import LiveDateTime from "@/components/LiveDateTime";
 import FloatingElements from "@/components/FloatingElements";
+import CursorGlow from "@/components/CursorGlow";
 
 const Index = () => {
   useSmoothScroll();
@@ -58,6 +59,7 @@ const Index = () => {
       <ScrollProgress />
       <LiveDateTime />
       {!prefersReducedMotion && <FloatingElements count={floatingCount} />}
+      {!prefersReducedMotion && <CursorGlow />}
 
       <div className="min-h-screen relative">
         <Navbar />

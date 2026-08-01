@@ -5,6 +5,16 @@ import StaggerItem from "./StaggerItem";
 
 const projects = [
   {
+    title: "CertiHub",
+    description: "A full-stack certificate management platform that allows users to securely store, organize and share certificates with a clean interface. Built during the Technical Hub internship with a focus on clean code and smooth UX.",
+    tech: ["TypeScript", "JavaScript", "HTML", "MongoDB"],
+    github: "https://github.com/CHAKRADHAR-CODE/CertiHub",
+    live: "https://certihub-taupe.vercel.app/",
+    featured: true,
+    highlights: ["Full-Stack Dev", "Certificate Management", "Internship Project"],
+    date: "May 2026",
+  },
+  {
     title: "Library Seat Reservation System",
     description: "A web-based system managing 100+ seat bookings with real-time availability tracking. Developed an interactive UI using 3 front-end technologies and integrated MongoDB to manage multiple collections.",
     tech: ["HTML", "TypeScript", "JavaScript", "MongoDB"],
@@ -20,7 +30,7 @@ const projects = [
     tech: ["Python", "MySQL", "AI/ML", "Game Logic"],
     github: "https://github.com/CHAKRADHAR-CODE/AI-Word-Guess-Game",
     live: null,
-    featured: true,
+    featured: false,
     highlights: ["AI-Powered", "Database Optimization", "Game Development"],
     date: "Mar 2025",
   },
@@ -60,7 +70,7 @@ const ProjectsSection = () => {
                 {/* Animated border gradient on hover */}
                 <div className="absolute -inset-[1px] rounded-3xl bg-gradient-to-r from-primary via-[hsl(38_95%_54%)] to-primary opacity-0 group-hover:opacity-60 transition-all duration-700 blur-sm animate-gradient-shift" />
                 
-                <div className="relative glass-card-strong anime-card rounded-3xl p-8 h-full flex flex-col transition-all duration-500 group-hover:-translate-y-2 overflow-hidden">
+                <div className="relative glass-card-strong anime-card rounded-3xl p-8 h-full flex flex-col transition-all duration-500 group-hover:-translate-y-2 overflow-hidden hover-scan">
                   {/* Inner top glow */}
                   <div className="absolute top-0 right-0 w-[250px] h-[150px] rounded-full blur-[80px] opacity-0 group-hover:opacity-100 transition-opacity duration-700"
                     style={{ background: "hsl(45 100% 55% / 0.1)" }} />

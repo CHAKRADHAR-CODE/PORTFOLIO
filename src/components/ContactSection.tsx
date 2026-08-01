@@ -23,7 +23,7 @@ const contactInfo = [
   {
     icon: MapPin,
     label: "Location",
-    value: "Andhra Pradesh, India",
+    value: "Kakinada, Andhra Pradesh",
     href: null,
   },
 ];
@@ -32,7 +32,7 @@ const socialLinks = [
   {
     icon: Linkedin,
     label: "LinkedIn",
-    href: "https://www.linkedin.com/in/chakradhar-chowdary-gunnam-910070333",
+    href: "https://www.linkedin.com/in/chakradhar-gunnam/",
   },
   {
     icon: Github,
