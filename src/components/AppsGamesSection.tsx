@@ -34,7 +34,7 @@ const AppsGamesSection = () => {
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-[hsl(0_0%_0%/0.3)] via-transparent to-[hsl(0_0%_0%/0.3)]" />
       <div className="absolute top-1/4 left-0 w-[500px] h-[500px] rounded-full blur-[160px]"
-        style={{ background: "hsl(340 80% 45% / 0.07)" }} />
+        style={{ background: "hsl(45 100% 55% / 0.07)" }} />
       <div className="absolute bottom-1/4 right-0 w-[400px] h-[400px] rounded-full blur-[140px]"
         style={{ background: "hsl(20 90% 50% / 0.06)" }} />
       <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-primary/60 to-transparent" />
@@ -61,9 +61,9 @@ const AppsGamesSection = () => {
                 className="group relative block h-full focus:outline-none"
               >
                 {/* Animated border glow on hover */}
-                <div className="absolute -inset-[1px] rounded-3xl bg-gradient-to-r from-primary via-[hsl(348_80%_52%)] to-primary opacity-0 group-hover:opacity-60 transition-all duration-700 blur-sm animate-gradient-shift" />
+                <div className="absolute -inset-[1px] rounded-3xl bg-gradient-to-r from-primary via-[hsl(38_95%_54%)] to-primary opacity-0 group-hover:opacity-60 transition-all duration-700 blur-sm animate-gradient-shift" />
 
-                <div className="relative glass-card-strong rounded-3xl overflow-hidden h-full transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-[0_0_40px_-5px_hsl(0_85%_55%/0.35)] flex flex-col">
+                <div className="relative glass-card-strong rounded-3xl overflow-hidden h-full transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-[0_0_40px_-5px_hsl(43_95%_55%/0.35)] flex flex-col">
                   {/* Banner */}
                   <div className="relative aspect-[2/1] overflow-hidden bg-[hsl(0_0%_5%)]">
                     <div className={`absolute inset-0 bg-gradient-to-br ${app.accent} opacity-40`} />
@@ -115,7 +115,7 @@ const AppsGamesSection = () => {
                         <p className="text-xs text-muted-foreground mt-0.5">{app.category}</p>
                       </div>
                       <div className="shrink-0">
-                        <span className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-gradient-to-r from-[hsl(0_92%_58%)] to-[hsl(348_88%_52%)] text-white text-xs font-bold shadow-[0_4px_16px_-4px_hsl(0_85%_55%/0.6)] tracking-wider uppercase"
+                        <span className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-gradient-to-r from-[hsl(45_100%_66%)] to-[hsl(38_95%_54%)] text-primary-foreground text-xs font-bold shadow-[0_4px_16px_-4px_hsl(43_95%_50%/0.6)] tracking-wider uppercase"
                           style={{ fontFamily: "'Rajdhani', sans-serif" }}>
                           Get it
                           <ChevronRight className="w-3.5 h-3.5" />

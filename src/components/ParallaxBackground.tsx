@@ -17,7 +17,7 @@ const ParallaxBackground = ({ children }: ParallaxBackgroundProps) => {
         style={{ transform: `translateY(${slowOffset}px)` }}
       />
       <div
-        className="absolute top-1/2 -right-48 w-[500px] h-[500px] bg-[hsl(280,100%,65%,0.05)] rounded-full blur-[100px]"
+        className="absolute top-1/2 -right-48 w-[500px] h-[500px] bg-[hsl(45,100%,66%,0.05)] rounded-full blur-[100px]"
         style={{ transform: `translateY(${slowOffset * 0.8}px)` }}
       />
       <div
@@ -31,7 +31,7 @@ const ParallaxBackground = ({ children }: ParallaxBackgroundProps) => {
         style={{ transform: `translateY(${mediumOffset}px)` }}
       />
       <div
-        className="absolute bottom-1/3 left-1/4 w-[250px] h-[250px] bg-[hsl(280,100%,65%,0.08)] rounded-full blur-[70px]"
+        className="absolute bottom-1/3 left-1/4 w-[250px] h-[250px] bg-[hsl(45,100%,66%,0.08)] rounded-full blur-[70px]"
         style={{ transform: `translateY(${mediumOffset * 0.9}px)` }}
       />
 

@@ -89,12 +89,12 @@ const TestimonialsSection = () => {
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 left-1/4 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-20 right-1/4 w-72 h-72 bg-[hsl(280,100%,65%,0.1)] rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
+        <div className="absolute bottom-20 right-1/4 w-72 h-72 bg-[hsl(45,100%,66%,0.1)] rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
         
         {/* Floating quotes */}
         <Quote className="absolute top-1/4 left-10 w-16 h-16 text-primary/10 animate-float" />
         <Quote className="absolute bottom-1/4 right-10 w-12 h-12 text-primary/10 animate-float" style={{ animationDelay: "2s" }} />
-        <Quote className="absolute top-1/2 right-1/3 w-8 h-8 text-[hsl(280,100%,65%,0.1)] animate-float" style={{ animationDelay: "3s" }} />
+        <Quote className="absolute top-1/2 right-1/3 w-8 h-8 text-[hsl(45,100%,66%,0.1)] animate-float" style={{ animationDelay: "3s" }} />
       </div>
 
       <div className="max-w-4xl mx-auto relative z-10">
@@ -145,7 +145,7 @@ const TestimonialsSection = () => {
                 
                 <div className="flex items-center gap-4">
                   <div className="relative">
-                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-[hsl(280,100%,65%)] flex items-center justify-center text-primary-foreground font-bold text-lg">
+                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-[hsl(45,100%,66%)] flex items-center justify-center text-primary-foreground font-bold text-lg">
                       {testimonials[currentIndex].avatar}
                     </div>
                     <div className="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-emerald-500 border-2 border-background flex items-center justify-center">
@@ -167,7 +167,7 @@ const TestimonialsSection = () => {
               </div>
 
               {/* Decorative gradient */}
-              <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-[hsl(280,100%,65%)] to-primary" />
+              <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-[hsl(45,100%,66%)] to-primary" />
             </div>
 
             {/* Navigation */}

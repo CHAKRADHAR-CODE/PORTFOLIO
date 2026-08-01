@@ -194,7 +194,7 @@ const AdaptiveBackground = ({
       <div
         className="absolute inset-0 pointer-events-none opacity-30"
         style={{
-          backgroundImage: "repeating-conic-gradient(hsl(0 85% 45% / 0.015) 0deg 1deg, transparent 1deg 10deg)",
+          backgroundImage: "repeating-conic-gradient(hsl(45 100% 60% / 0.02) 0deg 1deg, transparent 1deg 10deg)",
         }}
       />
 

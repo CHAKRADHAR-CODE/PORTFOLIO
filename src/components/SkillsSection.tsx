@@ -44,16 +44,16 @@ const SkillsSection = () => {
       {/* Background - ember/orange accent for skills */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[hsl(15_90%_55%/0.03)] to-transparent" />
       <div className="absolute top-1/2 left-0 w-[400px] h-[400px] rounded-full blur-[160px]"
-        style={{ background: "hsl(15 90% 50% / 0.06)" }} />
+        style={{ background: "hsl(38 95% 52% / 0.06)" }} />
       <div className="absolute top-1/2 right-0 w-[300px] h-[300px] rounded-full blur-[140px]"
-        style={{ background: "hsl(0 85% 45% / 0.05)" }} />
+        style={{ background: "hsl(45 100% 55% / 0.05)" }} />
 
       {/* Diagonal accent border top */}
-      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[hsl(15_90%_55%/0.6)] to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-primary/60 to-transparent" />
 
       <div className="max-w-6xl mx-auto relative z-10">
         <AnimatedSection className="text-center mb-16 section-header">
-          <span className="inline-block px-4 py-1.5 rounded-full glass-card text-xs font-bold text-[hsl(15_90%_60%)] mb-4 tracking-[0.3em] uppercase border border-[hsl(15_90%_55%/0.3)]">
+          <span className="inline-block px-4 py-1.5 rounded-full glass-card text-xs font-bold text-[hsl(43_95%_62%)] mb-4 tracking-[0.3em] uppercase border border-[hsl(43_95%_55%/0.3)]">
             // Technical Skills
           </span>
           <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4">

@@ -43,18 +43,18 @@ const ResumeSection = () => {
           <AnimatedSection animation="fade-up">
             <div className="relative group">
               {/* Animated gradient border glow */}
-              <div className="absolute -inset-[1px] rounded-[2rem] bg-gradient-to-r from-primary via-[hsl(348,85%,52%)] to-[hsl(280,100%,65%)] opacity-0 group-hover:opacity-70 transition-all duration-700 blur-md" />
+              <div className="absolute -inset-[1px] rounded-[2rem] bg-gradient-to-r from-primary via-[hsl(38,95%,54%)] to-[hsl(45,100%,68%)] opacity-0 group-hover:opacity-70 transition-all duration-700 blur-md" />
 
               <div className="relative glass-card-strong rounded-[2rem] overflow-hidden">
                 {/* Top accent line */}
-                <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-primary via-[hsl(348,85%,52%)] to-transparent" />
+                <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-primary via-[hsl(38,95%,54%)] to-transparent" />
 
                 <div className="grid md:grid-cols-[300px_1fr] gap-10 p-8 md:p-12 items-center">
                   {/* PDF file mockup */}
                   <div className="hidden md:flex flex-col items-center gap-5">
                     <div className="relative group/file">
                       {/* Glow */}
-                      <div className="absolute -inset-3 rounded-[1.5rem] bg-gradient-to-br from-primary/20 to-[hsl(280,100%,65%,0.15)] blur-xl opacity-0 group-hover/file:opacity-100 transition-opacity duration-500" />
+                      <div className="absolute -inset-3 rounded-[1.5rem] bg-gradient-to-br from-primary/20 to-[hsl(45,100%,66%,0.15)] blur-xl opacity-0 group-hover/file:opacity-100 transition-opacity duration-500" />
                       {/* Document */}
                       <div className="relative w-44 h-56 rounded-2xl bg-gradient-to-b from-[hsl(0_0%_12%)] to-[hsl(0_0%_7%)] border border-border/60 shadow-2xl p-5 flex flex-col gap-2.5">
                         <div className="flex items-center justify-between mb-1">
@@ -73,10 +73,10 @@ const ResumeSection = () => {
                         <div className="h-1.5 w-full rounded-full bg-muted-foreground/15" />
                         <div className="h-1.5 w-3/5 rounded-full bg-muted-foreground/15" />
                         <div className="flex-1" />
-                        <div className="h-2 w-full rounded-full bg-gradient-to-r from-primary/80 to-[hsl(348,85%,52%)]" />
+                        <div className="h-2 w-full rounded-full bg-gradient-to-r from-primary/80 to-[hsl(38,95%,54%)]" />
                       </div>
                       {/* PDF badge */}
-                      <span className="absolute -top-3 -right-3 px-3 py-1 rounded-lg bg-gradient-to-r from-primary to-[hsl(348,85%,52%)] text-white text-[11px] font-black tracking-widest shadow-lg shadow-primary/30">
+                      <span className="absolute -top-3 -right-3 px-3 py-1 rounded-lg bg-gradient-to-r from-primary to-[hsl(38,95%,54%)] text-primary-foreground text-[11px] font-black tracking-widest shadow-lg shadow-primary/30">
                         PDF
                       </span>
                     </div>

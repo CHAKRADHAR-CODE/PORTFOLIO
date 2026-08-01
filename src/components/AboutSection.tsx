@@ -13,22 +13,22 @@ const skills = [
     category: "Languages",
     icon: Code2,
     items: ["Python (NumPy, Pandas)", "C++", "SQL"],
-    accent: "from-primary to-[hsl(0_70%_35%)]",
+    accent: "from-primary to-[hsl(38_90%_40%)]",
     accentColor: "text-primary",
   },
   {
     category: "ML/Database",
     icon: Database,
     items: ["Supervised Learning", "MySQL", "Query Optimization"],
-    accent: "from-[hsl(220_80%_55%)] to-[hsl(240_70%_60%)]",
-    accentColor: "text-[hsl(220_80%_65%)]",
+    accent: "from-[hsl(45_100%_60%)] to-[hsl(38_95%_50%)]",
+    accentColor: "text-[hsl(43_95%_62%)]",
   },
   {
     category: "Tools",
     icon: Wrench,
     items: ["Git", "Power BI", "VS Code", "Linux"],
-    accent: "from-[hsl(142_70%_40%)] to-[hsl(160_60%_35%)]",
-    accentColor: "text-[hsl(142_70%_50%)]",
+    accent: "from-[hsl(35_70%_50%)] to-[hsl(30_65%_42%)]",
+    accentColor: "text-[hsl(38_80%_60%)]",
   },
 ];
 
@@ -59,17 +59,17 @@ const education = [
 const AboutSection = () => {
   return (
     <section id="about" className="py-24 px-4 relative overflow-hidden">
-      {/* Background — blue accent for about */}
+      {/* Background — gold accent for about */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full blur-[180px]"
-        style={{ background: "hsl(220 80% 55% / 0.06)" }} />
+        style={{ background: "hsl(45 100% 55% / 0.07)" }} />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full blur-[150px]"
-        style={{ background: "hsl(0 85% 45% / 0.05)" }} />
-      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[hsl(220_80%_55%/0.5)] to-transparent" />
+        style={{ background: "hsl(38 95% 48% / 0.05)" }} />
+      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
 
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Section Header */}
         <AnimatedSection className="text-center mb-16 section-header">
-          <span className="inline-block px-4 py-1.5 rounded-full glass-card text-xs font-bold text-[hsl(220_80%_65%)] mb-4 tracking-[0.3em] uppercase border border-[hsl(220_80%_55%/0.3)]">
+          <span className="inline-block px-4 py-1.5 rounded-full glass-card text-xs font-bold text-[hsl(43_95%_62%)] mb-4 tracking-[0.3em] uppercase border border-[hsl(43_95%_55%/0.3)]">
             // About Me
           </span>
           <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4">
@@ -104,7 +104,7 @@ const AboutSection = () => {
           <AnimatedSection animation="fade-right" delay={200}>
             <div className="glass-card-strong anime-card rounded-3xl p-8 h-full">
               <div className="flex items-center gap-4 mb-8">
-                <div className="p-3 rounded-2xl bg-gradient-to-br from-primary to-[hsl(0_70%_35%)]">
+                <div className="p-3 rounded-2xl bg-gradient-to-br from-primary to-[hsl(38_90%_40%)]">
                   <GraduationCap className="w-7 h-7 text-primary-foreground" />
                 </div>
                 <div>
@@ -146,7 +146,7 @@ const AboutSection = () => {
           <AnimatedSection animation="fade-left" delay={200}>
             <div className="glass-card-strong anime-card rounded-3xl p-8 h-full">
               <div className="flex items-center gap-4 mb-8">
-                <div className="p-3 rounded-2xl bg-gradient-to-br from-[hsl(142_70%_40%)] to-[hsl(160_60%_35%)]">
+                <div className="p-3 rounded-2xl bg-gradient-to-br from-[hsl(35_70%_50%)] to-[hsl(30_65%_42%)]">
                   <Award className="w-7 h-7 text-primary-foreground" />
                 </div>
                 <div>

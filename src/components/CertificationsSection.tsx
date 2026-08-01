@@ -21,8 +21,8 @@ const certifications = [
       { name: "C Programming", verified: true },
       { name: "Cybersecurity Essentials", verified: true },
     ],
-    color: "from-[hsl(280,100%,65%)] to-[hsl(320,100%,60%)]",
-    bgGlow: "bg-[hsl(280,100%,65%,0.2)]",
+    color: "from-[hsl(45,100%,66%)] to-[hsl(38,95%,54%)]",
+    bgGlow: "bg-[hsl(45,100%,66%,0.2)]",
     logo: "🔐",
     description: "Programming & Security",
   },
@@ -34,7 +34,7 @@ const CertificationsSection = () => {
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 right-1/4 w-72 h-72 bg-primary/5 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-20 left-1/4 w-96 h-96 bg-[hsl(280,100%,65%,0.05)] rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1.5s" }} />
+        <div className="absolute bottom-20 left-1/4 w-96 h-96 bg-[hsl(45,100%,66%,0.05)] rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1.5s" }} />
       </div>
 
       <div className="max-w-4xl mx-auto relative z-10">

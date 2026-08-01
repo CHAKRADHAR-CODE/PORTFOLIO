@@ -69,22 +69,22 @@ const HeroSection = () => {
           left: `${mousePosition.x}%`,
           top: `${mousePosition.y}%`,
           transform: 'translate(-50%, -50%)',
-          background: "hsl(0 85% 45% / 0.08)",
+          background: "hsl(45 100% 55% / 0.08)",
         }}
       />
       
       {/* Static ambient orbs */}
       <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full blur-[180px] animate-orb-float"
-        style={{ background: "hsl(0 85% 45% / 0.11)" }} />
+        style={{ background: "hsl(45 100% 55% / 0.1)" }} />
       <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full blur-[140px] animate-orb-float"
-        style={{ background: "hsl(348 80% 40% / 0.09)", animationDelay: '-5s' }} />
+        style={{ background: "hsl(38 95% 50% / 0.09)", animationDelay: '-5s' }} />
 
-      {/* Top red vignette */}
-      <div className="absolute inset-x-0 top-0 h-[40vh] pointer-events-none bg-[radial-gradient(ellipse_60%_100%_at_50%_0%,hsl(0_85%_50%/0.07),transparent_70%)]" />
+      {/* Top gold vignette */}
+      <div className="absolute inset-x-0 top-0 h-[40vh] pointer-events-none bg-[radial-gradient(ellipse_60%_100%_at_50%_0%,hsl(45_100%_55%/0.08),transparent_70%)]" />
 
       {/* Animated Grid Pattern */}
       <div 
-        className="absolute inset-0 bg-[linear-gradient(hsl(0_85%_55%/0.025)_1px,transparent_1px),linear-gradient(90deg,hsl(0_85%_55%/0.025)_1px,transparent_1px)] bg-[size:80px_80px] [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_70%)]"
+        className="absolute inset-0 bg-[linear-gradient(hsl(45_100%_60%/0.03)_1px,transparent_1px),linear-gradient(90deg,hsl(45_100%_60%/0.03)_1px,transparent_1px)] bg-[size:80px_80px] [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_70%)]"
         style={{
           transform: `translate(${(mousePosition.x - 50) * 0.015}px, ${(mousePosition.y - 50) * 0.015}px)`,
         }}
@@ -102,11 +102,11 @@ const HeroSection = () => {
               width: `${1.5 + Math.random() * 2.5}px`,
               height: `${1.5 + Math.random() * 2.5}px`,
               background: i % 4 === 0
-                ? 'hsl(0 85% 58% / 0.7)'
+                ? 'hsl(45 100% 68% / 0.7)'
                 : i % 4 === 1
-                  ? 'hsl(348 80% 55% / 0.5)'
+                  ? 'hsl(43 95% 58% / 0.5)'
                   : i % 4 === 2
-                    ? 'hsl(15 90% 55% / 0.4)'
+                    ? 'hsl(38 95% 56% / 0.4)'
                     : 'hsl(0 0% 70% / 0.2)',
               animationDuration: `${10 + Math.random() * 14}s`,
               animationDelay: `${Math.random() * 5}s`,
@@ -126,7 +126,7 @@ const HeroSection = () => {
               top: 0,
               bottom: 0,
               width: '1px',
-              background: `linear-gradient(180deg, transparent, hsl(0 85% 58%), transparent)`,
+              background: `linear-gradient(180deg, transparent, hsl(45 100% 66%), transparent)`,
               transform: 'skewX(-20deg)',
               animation: `energy-pulse ${4 + i}s ease-in-out infinite`,
               animationDelay: `${i * 0.8}s`,

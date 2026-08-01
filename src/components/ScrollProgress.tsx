@@ -19,7 +19,7 @@ const ScrollProgress = () => {
       >
         <div className="absolute inset-0 bg-background/50 backdrop-blur-sm" />
         <div
-          className="relative h-full bg-gradient-to-r from-primary via-[hsl(280,100%,65%)] to-primary transition-all duration-150 ease-out"
+          className="relative h-full bg-gradient-to-r from-primary via-[hsl(45,100%,66%)] to-primary transition-all duration-150 ease-out"
           style={{ width: `${progress}%` }}
         >
           {/* Leading glow dot */}
@@ -32,7 +32,7 @@ const ScrollProgress = () => {
         </div>
         {/* Glow effect */}
         <div
-          className="absolute top-0 h-2 bg-gradient-to-r from-primary via-[hsl(280,100%,65%)] to-primary blur-md opacity-60"
+          className="absolute top-0 h-2 bg-gradient-to-r from-primary via-[hsl(45,100%,66%)] to-primary blur-md opacity-60"
           style={{ width: `${progress}%` }}
         />
       </div>
@@ -69,7 +69,7 @@ const ScrollProgress = () => {
               <defs>
                 <linearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="0%">
                   <stop offset="0%" stopColor="hsl(var(--primary))" />
-                  <stop offset="50%" stopColor="hsl(280 100% 65%)" />
+                  <stop offset="50%" stopColor="hsl(45 100% 66%)" />
                   <stop offset="100%" stopColor="hsl(var(--primary))" />
                 </linearGradient>
               </defs>

@@ -37,7 +37,7 @@ const Preloader = ({ onComplete }: { onComplete: () => void }) => {
       {/* Background effects */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] rounded-full bg-primary/10 blur-[150px] animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] rounded-full bg-[hsl(280,100%,70%,0.08)] blur-[120px] animate-pulse" style={{ animationDelay: "-2s" }} />
+        <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] rounded-full bg-[hsl(45,100%,72%,0.08)] blur-[120px] animate-pulse" style={{ animationDelay: "-2s" }} />
       </div>
 
       {/* Content */}
@@ -74,7 +74,7 @@ const Preloader = ({ onComplete }: { onComplete: () => void }) => {
               <defs>
                 <linearGradient id="preloaderGradient" x1="0%" y1="0%" x2="100%" y2="0%">
                   <stop offset="0%" stopColor="hsl(var(--primary))" />
-                  <stop offset="50%" stopColor="hsl(280 100% 65%)" />
+                  <stop offset="50%" stopColor="hsl(45 100% 66%)" />
                   <stop offset="100%" stopColor="hsl(var(--primary))" />
                 </linearGradient>
               </defs>
@@ -125,7 +125,7 @@ const Preloader = ({ onComplete }: { onComplete: () => void }) => {
         {/* Progress bar */}
         <div className="w-48 h-1 rounded-full bg-muted/30 overflow-hidden">
           <div 
-            className="h-full rounded-full bg-gradient-to-r from-primary via-[hsl(280,100%,65%)] to-primary transition-all duration-200 ease-out"
+            className="h-full rounded-full bg-gradient-to-r from-primary via-[hsl(45,100%,66%)] to-primary transition-all duration-200 ease-out"
             style={{ width: `${progress}%` }}
           />
         </div>

@@ -53,7 +53,7 @@ const ResumePreviewModal = ({ isOpen, onClose }: ResumePreviewModalProps) => {
         {/* Header */}
         <div className="sticky top-0 z-10 flex items-center justify-between gap-3 p-4 md:p-5 border-b border-border/30 bg-background/90 backdrop-blur-xl">
           <div className="flex items-center gap-3 min-w-0">
-            <div className="p-2 rounded-xl bg-gradient-to-br from-primary to-[hsl(348,85%,52%)] shrink-0">
+            <div className="p-2 rounded-xl bg-gradient-to-br from-primary to-[hsl(38,95%,54%)] shrink-0">
               <FileText className="w-5 h-5 text-primary-foreground" />
             </div>
             <div className="min-w-0">

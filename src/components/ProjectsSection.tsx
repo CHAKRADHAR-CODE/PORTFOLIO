@@ -29,12 +29,12 @@ const projects = [
 const ProjectsSection = () => {
   return (
     <section id="projects" className="py-24 px-4 relative overflow-hidden accent-projects">
-      {/* Background - crimson accent for projects */}
+      {/* Background - gold accent for projects */}
       <div className="absolute inset-0 bg-gradient-to-b from-[hsl(0_0%_0%/0.3)] via-transparent to-[hsl(0_0%_0%/0.3)]" />
       <div className="absolute top-1/4 right-0 w-[500px] h-[500px] rounded-full blur-[160px]"
-        style={{ background: "hsl(0 85% 45% / 0.07)" }} />
+        style={{ background: "hsl(45 100% 55% / 0.07)" }} />
       <div className="absolute bottom-1/4 left-0 w-[400px] h-[400px] rounded-full blur-[140px]"
-        style={{ background: "hsl(348 80% 42% / 0.06)" }} />
+        style={{ background: "hsl(38 95% 48% / 0.06)" }} />
       
       {/* Top accent line */}
       <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-primary/60 to-transparent" />
@@ -58,12 +58,12 @@ const ProjectsSection = () => {
             <StaggerItem key={project.title} index={index} baseDelay={100} animation="fade-up">
               <div className="group relative h-full">
                 {/* Animated border gradient on hover */}
-                <div className="absolute -inset-[1px] rounded-3xl bg-gradient-to-r from-primary via-[hsl(348_80%_52%)] to-primary opacity-0 group-hover:opacity-60 transition-all duration-700 blur-sm animate-gradient-shift" />
+                <div className="absolute -inset-[1px] rounded-3xl bg-gradient-to-r from-primary via-[hsl(38_95%_54%)] to-primary opacity-0 group-hover:opacity-60 transition-all duration-700 blur-sm animate-gradient-shift" />
                 
                 <div className="relative glass-card-strong anime-card rounded-3xl p-8 h-full flex flex-col transition-all duration-500 group-hover:-translate-y-2 overflow-hidden">
                   {/* Inner top glow */}
                   <div className="absolute top-0 right-0 w-[250px] h-[150px] rounded-full blur-[80px] opacity-0 group-hover:opacity-100 transition-opacity duration-700"
-                    style={{ background: "hsl(0 85% 45% / 0.1)" }} />
+                    style={{ background: "hsl(45 100% 55% / 0.1)" }} />
                   
                   {/* Header */}
                   <div className="flex items-start justify-between mb-6">

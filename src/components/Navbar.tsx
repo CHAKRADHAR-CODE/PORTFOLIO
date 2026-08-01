@@ -64,10 +64,10 @@ const Navbar = () => {
         >
           <span className="text-lg font-heading font-bold tracking-wider">
             <span className="text-primary/60">&lt;</span>
-            <span className="gradient-text-static drop-shadow-[0_0_12px_hsl(0_90%_58%/0.45)]">CHAKRADHAR</span>
+            <span className="gradient-text-static drop-shadow-[0_0_12px_hsl(45_100%_65%/0.5)]">CHAKRADHAR</span>
             <span className="text-primary/60">/&gt;</span>
           </span>
-          <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-gradient-to-r from-primary via-[hsl(348_88%_52%)] to-transparent group-hover:w-full transition-all duration-400" />
+          <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-gradient-to-r from-primary via-[hsl(38_95%_56%)] to-transparent group-hover:w-full transition-all duration-400" />
         </button>
 
         {/* Desktop Links */}
@@ -86,7 +86,7 @@ const Navbar = () => {
               >
                 {link.label}
                 {isActive && (
-                  <span className="absolute -bottom-0 left-1/2 -translate-x-1/2 w-6 h-[2px] rounded-full bg-gradient-to-r from-primary to-[hsl(340_90%_62%)] shadow-[0_0_8px_hsl(0_90%_58%/0.8)]" />
+                  <span className="absolute -bottom-0 left-1/2 -translate-x-1/2 w-6 h-[2px] rounded-full bg-gradient-to-r from-primary to-[hsl(45_100%_68%)] shadow-[0_0_8px_hsl(43_95%_55%/0.8)]" />
                 )}
               </button>
             );

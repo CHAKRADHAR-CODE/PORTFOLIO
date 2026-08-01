@@ -58,7 +58,7 @@ const FloatingElements = ({ count = 20, className }: FloatingElementsProps) => {
         style={{
           left: "10%",
           top: "20%",
-          background: "hsl(0 85% 45% / 0.06)",
+          background: "hsl(45 100% 55% / 0.06)",
           animation: "orb-float 15s ease-in-out infinite",
         }}
       />
@@ -67,7 +67,7 @@ const FloatingElements = ({ count = 20, className }: FloatingElementsProps) => {
         style={{
           right: "15%",
           bottom: "30%",
-          background: "hsl(348 80% 40% / 0.05)",
+          background: "hsl(38 95% 50% / 0.05)",
           animation: "orb-float 20s ease-in-out infinite reverse",
         }}
       />

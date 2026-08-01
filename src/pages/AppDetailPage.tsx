@@ -69,7 +69,7 @@ const AppDetailPage = () => {
         <div className="fixed inset-0 pointer-events-none overflow-hidden">
           <div className={`absolute top-0 left-0 right-0 h-80 bg-gradient-to-br ${app.accent} opacity-[0.08]`} />
           <div className="absolute top-1/3 right-0 w-[500px] h-[500px] rounded-full blur-[160px]"
-            style={{ background: "hsl(340 80% 45% / 0.07)" }} />
+            style={{ background: "hsl(45 100% 55% / 0.07)" }} />
           <div className="absolute bottom-1/4 left-0 w-[400px] h-[400px] rounded-full blur-[140px]"
             style={{ background: "hsl(20 90% 50% / 0.05)" }} />
         </div>
