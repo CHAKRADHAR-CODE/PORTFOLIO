@@ -67,11 +67,11 @@ const AppDetailPage = () => {
 
         {/* Ambient background */}
         <div className="fixed inset-0 pointer-events-none overflow-hidden">
-          <div className={`absolute top-0 left-0 right-0 h-80 bg-gradient-to-br ${app.accent} opacity-[0.08]`} />
+          <div className="absolute top-0 left-0 right-0 h-80 bg-gradient-to-b from-[hsl(45_100%_55%/0.07)] via-[hsl(43_95%_50%/0.04)] to-transparent" />
           <div className="absolute top-1/3 right-0 w-[500px] h-[500px] rounded-full blur-[160px]"
             style={{ background: "hsl(45 100% 55% / 0.07)" }} />
           <div className="absolute bottom-1/4 left-0 w-[400px] h-[400px] rounded-full blur-[140px]"
-            style={{ background: "hsl(20 90% 50% / 0.05)" }} />
+            style={{ background: "hsl(43 95% 55% / 0.05)" }} />
         </div>
 
         {/* Top bar */}
@@ -113,7 +113,7 @@ const AppDetailPage = () => {
             <div className="relative rounded-3xl overflow-hidden glass-card-strong">
               {/* Banner */}
               <div className="relative aspect-[2/1] md:aspect-[41/20] overflow-hidden bg-[hsl(0_0%_5%)]">
-                <div className={`absolute inset-0 bg-gradient-to-br ${app.accent} opacity-40`} />
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(43_95%_55%/0.16),transparent_75%)]" />
                 <SmartImage
                   src={app.banner}
                   alt={`${app.name} banner`}
@@ -252,8 +252,8 @@ const AppDetailPage = () => {
                     key={highlight.label}
                     className="glass-card rounded-2xl p-5 flex items-center gap-4 hover:-translate-y-1 hover:border-primary/30 transition-all duration-300 group"
                   >
-                    <div className={`p-3 rounded-xl bg-gradient-to-br ${app.accent} group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
-                      <Icon className="w-5 h-5 text-white" />
+                    <div className="p-3 rounded-xl bg-gradient-to-br from-primary to-[hsl(38_95%_48%)] group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                      <Icon className="w-5 h-5 text-primary-foreground" />
                     </div>
                     <div>
                       <p className="font-bold text-sm leading-tight">{highlight.label}</p>
@@ -272,8 +272,8 @@ const AppDetailPage = () => {
             <div className="grid md:grid-cols-3 gap-4">
               {/* Windows */}
               <div className="glass-card-strong rounded-3xl p-6 flex flex-col items-center text-center hover:-translate-y-1 transition-transform duration-300">
-                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${app.accent} flex items-center justify-center mb-4 shadow-lg`}>
-                  <Monitor className="w-8 h-8 text-white" />
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-[hsl(38_95%_48%)] flex items-center justify-center mb-4 shadow-lg">
+                  <Monitor className="w-8 h-8 text-primary-foreground" />
                 </div>
                 <h3 className="font-bold text-lg">Windows Desktop</h3>
                 <p className="text-xs text-muted-foreground mt-1">{app.downloads.windows.label}</p>
@@ -287,7 +287,7 @@ const AppDetailPage = () => {
                 <a
                   href={app.downloads.windows.file}
                   download
-                  className="mt-5 w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-2xl bg-primary text-primary-foreground font-bold text-sm hover:bg-primary/90 transition-all hover:scale-[1.02] glow-primary-subtle"
+                  className="mt-5 w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-2xl bg-gradient-to-br from-[hsl(45_100%_66%)] via-[hsl(43_95%_56%)] to-[hsl(35_90%_48%)] text-primary-foreground font-bold text-sm shadow-[0_10px_30px_-10px_hsl(43_95%_50%/0.7)] hover:brightness-110 transition-all hover:scale-[1.02]"
                 >
                   <Download className="w-4 h-4" />
                   Download

@@ -1,5 +1,5 @@
 // Adaptive Theme Configuration - Seasons & Device Responsiveness
-// Premium Red & Black Morph Design System
+// Luxury Black & Gold Morph Design System
 
 export type Season = "spring" | "summer" | "autumn" | "winter";
 
@@ -13,35 +13,35 @@ export interface ThemeColors {
   accentHsl: string;
 }
 
-// Season themes - Red & Black morph with seasonal tints
+// Season themes - Black & Gold luxury with seasonal tint variations
 export const seasonThemes: Record<Season, ThemeColors> = {
   spring: {
-    gradient: "from-[#0a0404] via-[#1a0808] to-[#0f0605]",
-    orbColors: ["hsl(0,80%,40%,0.14)", "hsl(340,70%,45%,0.1)", "hsl(10,60%,40%,0.07)"],
-    particleColor: "hsl(350,80%,65%,0.7)",
-    glowColor: "hsl(350,80%,50%,0.15)",
-    accentHsl: "350 80% 55%",
+    gradient: "from-[#0b0a06] via-[#151207] to-[#0d0c07]",
+    orbColors: ["hsl(45,100%,58%,0.12)", "hsl(43,95%,50%,0.09)", "hsl(38,95%,48%,0.06)"],
+    particleColor: "hsl(45,100%,68%,0.7)",
+    glowColor: "hsl(45,100%,55%,0.15)",
+    accentHsl: "43 95% 58%",
   },
   summer: {
-    gradient: "from-[#0f0404] via-[#1a0606] to-[#120505]",
-    orbColors: ["hsl(0,90%,45%,0.15)", "hsl(15,85%,50%,0.1)", "hsl(348,80%,45%,0.08)"],
-    particleColor: "hsl(15,90%,60%,0.8)",
-    glowColor: "hsl(0,90%,50%,0.18)",
-    accentHsl: "0 90% 55%",
+    gradient: "from-[#0c0b06] via-[#161309] to-[#0e0d08]",
+    orbColors: ["hsl(43,95%,56%,0.13)", "hsl(38,95%,52%,0.1)", "hsl(45,100%,60%,0.07)"],
+    particleColor: "hsl(43,95%,62%,0.75)",
+    glowColor: "hsl(43,95%,55%,0.16)",
+    accentHsl: "43 95% 58%",
   },
   autumn: {
-    gradient: "from-[#0d0303] via-[#1a0808] to-[#100505]",
-    orbColors: ["hsl(0,75%,35%,0.16)", "hsl(15,80%,40%,0.1)", "hsl(350,70%,35%,0.08)"],
-    particleColor: "hsl(10,85%,55%,0.8)",
-    glowColor: "hsl(5,85%,45%,0.15)",
-    accentHsl: "5 80% 50%",
+    gradient: "from-[#0d0a06] via-[#171107] to-[#0f0c07]",
+    orbColors: ["hsl(38,95%,54%,0.13)", "hsl(35,90%,50%,0.1)", "hsl(30,80%,45%,0.07)"],
+    particleColor: "hsl(40,95%,62%,0.75)",
+    glowColor: "hsl(38,95%,52%,0.16)",
+    accentHsl: "40 90% 55%",
   },
   winter: {
-    gradient: "from-[#060408] via-[#0d060a] to-[#0a0410]",
-    orbColors: ["hsl(0,70%,35%,0.12)", "hsl(340,60%,40%,0.09)", "hsl(280,50%,35%,0.06)"],
-    particleColor: "hsl(0,40%,80%,0.7)",
-    glowColor: "hsl(350,70%,45%,0.12)",
-    accentHsl: "350 70% 50%",
+    gradient: "from-[#0a0a0c] via-[#141318] to-[#0b0b0e]",
+    orbColors: ["hsl(45,85%,60%,0.1)", "hsl(43,70%,55%,0.08)", "hsl(200,40%,60%,0.06)"],
+    particleColor: "hsl(45,100%,72%,0.7)",
+    glowColor: "hsl(45,85%,60%,0.13)",
+    accentHsl: "45 90% 62%",
   },
 };
 

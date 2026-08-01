@@ -66,7 +66,7 @@ const AppsGamesSection = () => {
                 <div className="relative glass-card-strong rounded-3xl overflow-hidden h-full transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-[0_0_40px_-5px_hsl(43_95%_55%/0.35)] flex flex-col">
                   {/* Banner */}
                   <div className="relative aspect-[2/1] overflow-hidden bg-[hsl(0_0%_5%)]">
-                    <div className={`absolute inset-0 bg-gradient-to-br ${app.accent} opacity-40`} />
+                    <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(43_95%_55%/0.15),transparent_75%)]" />
                     <SmartImage
                       src={app.banner}
                       alt={`${app.name} banner`}
