@@ -86,6 +86,8 @@ const ProjectsSection = () => {
                           href={project.live} 
                           target="_blank" 
                           rel="noopener noreferrer"
+                          title="View live website"
+                          aria-label={`View live website of ${project.title}`}
                           className="p-2.5 rounded-xl bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500 hover:text-white transition-all duration-300 border border-emerald-500/20"
                         >
                           <Globe className="w-4 h-4" />
@@ -95,6 +97,8 @@ const ProjectsSection = () => {
                         href={project.github} 
                         target="_blank" 
                         rel="noopener noreferrer"
+                        title="View GitHub repository"
+                        aria-label={`View GitHub repository of ${project.title}`}
                         className="p-2.5 rounded-xl bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 border border-primary/20"
                       >
                         <ArrowUpRight className="w-4 h-4" />
