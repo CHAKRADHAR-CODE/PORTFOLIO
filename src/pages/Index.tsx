@@ -9,6 +9,7 @@ import ProjectsSection from "@/components/ProjectsSection";
 import AppsGamesSection from "@/components/AppsGamesSection";
 import CodingProfilesSection from "@/components/CodingProfilesSection";
 import CertificationsSection from "@/components/CertificationsSection";
+import ChatbotSection from "@/components/ChatbotSection";
 
 import ResumeSection from "@/components/ResumeSection";
 import ContactSection from "@/components/ContactSection";
@@ -71,6 +72,7 @@ const Index = () => {
           <AppsGamesSection />
           <CodingProfilesSection />
           <CertificationsSection />
+          <ChatbotSection />
           
           <ResumeSection />
           <ContactSection />
