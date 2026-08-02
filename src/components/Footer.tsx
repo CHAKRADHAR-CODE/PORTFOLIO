@@ -9,6 +9,8 @@ const Footer = () => {
     { name: "Projects", href: "#projects" },
     { name: "Apps & Games", href: "#apps" },
     { name: "Coding Profiles", href: "#coding" },
+    { name: "AI Assistant", href: "#chat" },
+    { name: "My Resume", href: "#resume" },
     { name: "Contact", href: "#contact" },
   ];
 
