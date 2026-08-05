@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 
 interface ParallaxOptions {
   speed?: number;
@@ -8,16 +8,23 @@ interface ParallaxOptions {
 export const useParallax = ({ speed = 0.5, direction = "up" }: ParallaxOptions = {}) => {
   const [offset, setOffset] = useState(0);
 
-  const handleScroll = useCallback(() => {
-    const scrollY = window.scrollY;
-    const multiplier = direction === "up" ? -1 : 1;
-    setOffset(scrollY * speed * multiplier);
-  }, [speed, direction]);
-
   useEffect(() => {
+    let ticking = false;
+    const multiplier = direction === "up" ? -1 : 1;
+    const update = () => {
+      setOffset(window.scrollY * speed * multiplier);
+      ticking = false;
+    };
+    const handleScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
+      }
+    };
+
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [handleScroll]);
+  }, [speed, direction]);
 
   return offset;
 };
@@ -26,10 +33,18 @@ export const useScrollProgress = () => {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    const handleScroll = () => {
+    let ticking = false;
+    const update = () => {
       const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
       const scrollY = window.scrollY;
       setProgress(scrollHeight > 0 ? (scrollY / scrollHeight) * 100 : 0);
+      ticking = false;
+    };
+    const handleScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
+      }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });

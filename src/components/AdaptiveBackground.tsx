@@ -214,8 +214,7 @@ const AdaptiveBackground = ({
                 right: (orb as { right?: string }).right,
                 width: `${deviceType === "mobile" ? orb.size * 0.5 : deviceType === "tablet" ? orb.size * 0.75 : orb.size}px`,
                 height: `${deviceType === "mobile" ? orb.size * 0.5 : deviceType === "tablet" ? orb.size * 0.75 : orb.size}px`,
-                background: theme.orbColors[i] || theme.orbColors[0],
-                filter: `blur(${deviceType === "mobile" ? 80 : deviceType === "tablet" ? 120 : 160}px)`,
+                background: `radial-gradient(circle at center, ${theme.orbColors[i] || theme.orbColors[0]} 0%, transparent 70%)`,
                 transform: (orb as { centered?: boolean }).centered ? "translate(-50%, -50%)" : undefined,
               }}
             />
